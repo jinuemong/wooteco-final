@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ApplicationTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2023-12-12T15:48:09" hostname="gimjin-uui-MacBookPro.local" time="0.441">
+  <properties/>
+  <testcase name="예외 테스트()" classname="ApplicationTest" time="0.016">
+    <failure message="org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==&gt; expected: &lt;java.lang.IllegalArgumentException&gt; but was: &lt;kotlin.NotImplementedError&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==&gt; expected: &lt;java.lang.IllegalArgumentException&gt; but was: &lt;kotlin.NotImplementedError&gt;
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
+	at app//org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at app//org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at app//ApplicationTest.예외_테스트$lambda$2(ApplicationTest.kt:39)
+	at app//org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$2(AssertTimeout.java:102)
+	at app//org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$4(AssertTimeout.java:138)
+	at java.base@17.0.9/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@17.0.9/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.9/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.9/java.lang.Thread.run(Thread.java:840)
+Caused by: kotlin.NotImplementedError: An operation is not implemented: 프로그램 구현
+	at baseball.ApplicationKt.main(Application.kt:4)
+	at ApplicationTest.runMain(ApplicationTest.kt:30)
+	at camp.nextstep.edu.missionutils.test.NsTest.run(NsTest.java:37)
+	at camp.nextstep.edu.missionutils.test.NsTest.runException(NsTest.java:45)
+	at ApplicationTest.예외_테스트$lambda$2(ApplicationTest.kt:25)
+	... 6 more
+</failure>
+  </testcase>
+  <testcase name="게임종료 후 재시작()" classname="ApplicationTest" time="0.425">
+    <failure message="kotlin.NotImplementedError: An operation is not implemented: 프로그램 구현" type="kotlin.NotImplementedError">kotlin.NotImplementedError: An operation is not implemented: 프로그램 구현
+	at baseball.ApplicationKt.main(Application.kt:4)
+	at ApplicationTest.runMain(ApplicationTest.kt:30)
+	at camp.nextstep.edu.missionutils.test.NsTest.run(NsTest.java:37)
+	at ApplicationTest.게임종료_후_재시작$lambda$0(ApplicationTest.kt:14)
+	at camp.nextstep.edu.missionutils.test.Assertions.lambda$assertRandomTest$4(Assertions.java:89)
+	at org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$2(AssertTimeout.java:102)
+	at org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$4(AssertTimeout.java:138)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</failure>
+  </testcase>
+  <system-out><![CDATA[
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
