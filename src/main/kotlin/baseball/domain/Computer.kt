@@ -3,21 +3,25 @@ package baseball.domain
 import camp.nextstep.edu.missionutils.Randoms
 
 class Computer(
-    private val number: MutableList<Int>
+    private val numbers: MutableList<Int>
 ) {
 
-    fun makeNumbers() {
-        while (number.size < 3) {
+    init {
+        makeNumbers()
+    }
+
+    private fun makeNumbers() {
+        while (numbers.size < 3) {
             pickNumber(Randoms.pickNumberInRange(1, 9))
         }
     }
 
     private fun pickNumber(newNumber: Int) {
-        if (!checkDuplication(newNumber)) number.add(newNumber)
+        if (!checkDuplication(newNumber)) numbers.add(newNumber)
     }
 
-    private fun checkDuplication(newNumber: Int): Boolean = number.contains(newNumber)
+    private fun checkDuplication(newNumber: Int): Boolean = numbers.contains(newNumber)
 
-    fun getComputerNumbers(): List<Int> = number
+    fun getComputerNumbers(): List<Int> = numbers
 
 }
