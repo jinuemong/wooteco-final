@@ -1,6 +1,7 @@
 package baseball.vaildation
 
 import baseball.util.Error
+import baseball.util.GameRule
 import java.lang.NumberFormatException
 
 class CheckInputValidation {
@@ -26,7 +27,7 @@ class CheckInputValidation {
         }
     }
 
-    private fun isSingleDigit(userInput: String): Boolean = userInput.toInt() in 1..9
+    private fun isSingleDigit(userInput: String): Boolean = userInput.toInt() in GameRule.MIN_NUMBER .. GameRule.MAX_NUMBER
 
-    private fun isRestartNumber(userInput: Int): Boolean = userInput in 1..2
+    private fun isRestartNumber(userInput: Int): Boolean = userInput in GameRule.RESTART_OK_CODE .. GameRule.RESTART_NO_CODE
 }

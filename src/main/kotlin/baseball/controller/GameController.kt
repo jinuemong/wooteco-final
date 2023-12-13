@@ -48,7 +48,7 @@ class GameController(
     private fun checkRestart() {
         inputView.enterGameRestart().let {number ->
             verifier.checkRestartNumber(number)
-            if (number.toInt() == 1) gameProgress()
+            if (number.toInt() == GameRule.RESTART_OK_CODE ) gameProgress()
         }
     }
 
