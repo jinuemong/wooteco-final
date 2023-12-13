@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="racingcar.ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-13T14:27:06" hostname="gimjin-uui-MacBookPro.local" time="0.014">
-  <properties/>
-  <testcase name="이름에 대한 예외 처리()" classname="racingcar.ApplicationTest" time="0.014"/>
-  <system-out><![CDATA[경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

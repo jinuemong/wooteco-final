@@ -8,7 +8,7 @@ class InputValidation {
 
     fun checkAccuracyCarNames(userInput: String) {
         userInput.split(Form.SEPARATOR).forEach {
-            require(isCorrectNameLength(it) && !isNumber(userInput))
+            require(isCorrectNameLength(it) && !isNumber(it))
         }
     }
 
