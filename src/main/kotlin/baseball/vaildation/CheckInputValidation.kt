@@ -27,7 +27,12 @@ class CheckInputValidation {
         }
     }
 
-    private fun isSingleDigit(userInput: String): Boolean = userInput.toInt() in GameRule.MIN_NUMBER .. GameRule.MAX_NUMBER
+    private fun isSingleDigit(userInput: String): Boolean {
+        userInput.forEach { number ->
+            if (number.digitToInt() !in GameRule.MIN_NUMBER .. GameRule.MAX_NUMBER) return false
+        }
+        return true
+    }
 
     private fun isRestartNumber(userInput: Int): Boolean = userInput in GameRule.RESTART_OK_CODE .. GameRule.RESTART_NO_CODE
 }
