@@ -8,4 +8,6 @@ object Error {
 
     const val NOT_VALID_RESTART = "$ERR_MSG 1또는 2를 입력해야 합니다."
 
+    const val NOT_NUMBER_COUNT = "$ERR_MSG 3가지 숫자를 입력해야 합니다."
+
 }
