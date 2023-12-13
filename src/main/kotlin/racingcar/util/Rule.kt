@@ -10,4 +10,6 @@ object Rule {
     const val MAX_RANDOM_NUM = 9
     const val MIN_PROCESS_NUM = 4
 
+    const val CAR_PROGRESS = 1
+
 }
