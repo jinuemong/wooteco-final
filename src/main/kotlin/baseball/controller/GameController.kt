@@ -50,7 +50,10 @@ class GameController(
     private fun checkRestart() {
         inputView.enterGameRestart().let { number ->
             verifier.checkRestartNumber(number)
-            if (number.toInt() == GameRule.RESTART_OK_CODE) gameProgress()
+            if (number.toInt() == GameRule.RESTART_OK_CODE){
+                computer = Computer()
+                gameProgress()
+            }
         }
     }
 
