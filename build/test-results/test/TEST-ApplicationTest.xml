@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ApplicationTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-12-13T04:27:31" hostname="gimjin-uui-MacBookPro.local" time="0.402">
+<testsuite name="ApplicationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-12-13T06:33:24" hostname="gimjin-uui-MacBookPro.local" time="0.425">
   <properties/>
-  <testcase name="게임종료 후 재시작()" classname="ApplicationTest" time="0.402">
-    <failure message="java.util.NoSuchElementException: No line found" type="java.util.NoSuchElementException">java.util.NoSuchElementException: No line found
-	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
-	at camp.nextstep.edu.missionutils.Console.readLine(Console.java:12)
-	at baseball.view.InputView.enterNumber(InputView.kt:10)
-	at baseball.controller.GameController.makeUserNumbers(GameController.kt:67)
-	at baseball.controller.GameController.gameProgress(GameController.kt:31)
-	at baseball.controller.GameController.checkRestart(GameController.kt:55)
-	at baseball.controller.GameController.gameProgress(GameController.kt:47)
-	at baseball.controller.GameController.userFlow(GameController.kt:21)
-	at baseball.ApplicationKt.main(Application.kt:16)
-	at ApplicationTest.runMain(ApplicationTest.kt:30)
-	at camp.nextstep.edu.missionutils.test.NsTest.run(NsTest.java:37)
-	at ApplicationTest.게임종료_후_재시작$lambda$0(ApplicationTest.kt:14)
-	at camp.nextstep.edu.missionutils.test.Assertions.lambda$assertRandomTest$4(Assertions.java:89)
-	at org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$2(AssertTimeout.java:102)
-	at org.junit.jupiter.api.AssertTimeout.lambda$assertTimeoutPreemptively$4(AssertTimeout.java:138)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-</failure>
-  </testcase>
+  <testcase name="예외 테스트()" classname="ApplicationTest" time="0.014"/>
+  <testcase name="게임종료 후 재시작()" classname="ApplicationTest" time="0.411"/>
   <system-out><![CDATA[숫자 야구 게임을 시작합니다.
+숫자를 입력해주세요 : [ERROR] 3가지 숫자를 입력해야 합니다.
+숫자 야구 게임을 시작합니다.
 숫자를 입력해주세요 : 낫싱
 숫자를 입력해주세요 : 3스트라이크
 3개의 숫자를 모두 맞히셨습니다! 게임 종료
 게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.
-숫자를 입력해주세요 : 1볼
-숫자를 입력해주세요 : 1볼
-숫자를 입력해주세요 : 낫싱
-숫자를 입력해주세요 :
+숫자를 입력해주세요 : 1볼 1스트라이크
+숫자를 입력해주세요 : 3스트라이크
+3개의 숫자를 모두 맞히셨습니다! 게임 종료
+게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

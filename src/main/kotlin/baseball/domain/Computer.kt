@@ -7,17 +7,15 @@ class Computer(
     private val numbers: MutableList<Int> = mutableListOf()
 ) {
 
-    init {
-        makeNumbers()
-    }
-
-    private fun makeNumbers() {
+    fun makeNumbers() {
+        numbers.clear()
         while (numbers.size < GameRule.NUMBER_SIZE) {
-            pickNumber(Randoms.pickNumberInRange(GameRule.MIN_NUMBER, GameRule.MAX_NUMBER))
+            pickNumber()
         }
     }
 
-    private fun pickNumber(newNumber: Int) {
+    private fun pickNumber() {
+        val newNumber = Randoms.pickNumberInRange(GameRule.MIN_NUMBER, GameRule.MAX_NUMBER)
         if (!checkDuplication(newNumber)) numbers.add(newNumber)
     }
 

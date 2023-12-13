@@ -35,6 +35,7 @@ class GameController(
                 ResultState.STRIKE -> {
                     outputView.resultStrike(strike)
                     if (checkEndGame(strike)) break
+
                 }
 
                 ResultState.BALL -> outputView.resultBall(ball)
@@ -48,26 +49,25 @@ class GameController(
     }
 
     private fun checkRestart() {
-        inputView.enterGameRestart().let { number ->
-            verifier.checkRestartNumber(number)
-            if (number.toInt() == GameRule.RESTART_OK_CODE){
-                computer = Computer()
-                gameProgress()
-            }
+        val userInput = inputView.enterGameRestart()
+        verifier.checkRestartNumber(userInput)
+        if (userInput == GameRule.RESTART_OK_CODE){
+            computer.makeNumbers()
+            gameProgress()
         }
     }
 
 
     private fun gameAssignment() {
         computer = Computer()
+        computer.makeNumbers()
         referee = Referee(computer.getComputerNumbers())
     }
 
     private fun makeUserNumbers(): List<Int> {
-        inputView.enterNumber().let { numbers ->
-            verifier.checkIsValidNumber(numbers)
-            return switchNumbers(numbers)
-        }
+        val userInput = inputView.enterNumber()
+        verifier.checkIsValidNumber(userInput)
+        return switchNumbers(userInput)
     }
 
     private fun checkEndGame(result: Int): Boolean = result == GameRule.END_STRIKE_COUNT

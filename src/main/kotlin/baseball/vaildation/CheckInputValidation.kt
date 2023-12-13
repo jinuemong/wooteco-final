@@ -9,17 +9,17 @@ class CheckInputValidation {
     fun checkIsValidNumber(userInput: String) {
 
         require(isValidNumberSize(userInput)) {
-            Error.NOT_NUMBER_COUNT
+            println(Error.NOT_NUMBER_COUNT)
         }
 
         require(isNumber(userInput) && isSingleDigit(userInput)) {
-            Error.NOT_VALID_NUMBER
+            println(Error.NOT_VALID_NUMBER)
         }
     }
 
     fun checkRestartNumber(userInput: String) {
-        require(isNumber(userInput) && isRestartNumber(userInput.toInt())) {
-            Error.NOT_VALID_RESTART
+        require(isRestartNumber(userInput)) {
+            println(Error.NOT_VALID_RESTART)
         }
     }
 
@@ -39,8 +39,9 @@ class CheckInputValidation {
         return true
     }
 
-    private fun isRestartNumber(userInput: Int): Boolean =
-        userInput in GameRule.RESTART_OK_CODE..GameRule.RESTART_NO_CODE
+    private fun isRestartNumber(userInput: String): Boolean =
+        userInput == GameRule.RESTART_OK_CODE || userInput == GameRule.RESTART_NO_CODE
 
     private fun isValidNumberSize(userInput: String): Boolean = userInput.length <= GameRule.NUMBER_SIZE
+
 }
