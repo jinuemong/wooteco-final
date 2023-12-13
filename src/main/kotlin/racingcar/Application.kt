@@ -12,8 +12,7 @@ fun main() {
     val gameController = GameController(
         inputView = InputView(),
         outputView = OutputView(),
-        verifier = InputValidation(),
-        processor = Processor()
+        verifier = InputValidation()
     )
     gameController.userFlow()
 
