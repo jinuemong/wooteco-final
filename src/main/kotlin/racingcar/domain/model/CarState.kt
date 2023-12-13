@@ -1,6 +1,6 @@
 package racingcar.domain.model
 
-enum class Process {
+enum class CarState {
     FORWARD,
     STOP
 }
