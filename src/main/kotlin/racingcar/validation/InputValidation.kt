@@ -1,12 +1,13 @@
 package racingcar.validation
 
+import racingcar.util.Form
 import racingcar.util.Rule
 import java.lang.NumberFormatException
 
 class InputValidation {
 
     fun checkAccuracyCarNames(userInput: String){
-        userInput.split(",").forEach {
+        userInput.split(Form.SEPARATOR).forEach {
             require(isCorrectNameLength(it) && !isNumber(userInput))
         }
     }

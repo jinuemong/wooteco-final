@@ -5,8 +5,11 @@ import racingcar.util.Rule
 
 
 class Scoreboard(
-    private val cars: Map<String, Int> = mutableMapOf()
+    private val cars: Map<String, Int> = mutableMapOf(),
+    private val gameCount: Int
 ) {
+
+    fun checkCount(): Boolean = gameCount > 0
 
     fun progressCar(names: List<String>) {
         names.forEach { name ->
@@ -22,6 +25,5 @@ class Scoreboard(
     }
 
     private fun getFirstCarCount() = cars.values.max()
-
 
 }
