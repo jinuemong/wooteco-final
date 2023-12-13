@@ -7,15 +7,15 @@ import baseball.view.OutputView
 
 fun main() {
 
-    try {
-        val gameController = GameController(
-            inputView = InputView(),
-            outputView = OutputView(),
-            verifier = CheckInputValidation()
-        )
-        gameController.userFlow()
+//    try {
+    val gameController = GameController(
+        inputView = InputView(),
+        outputView = OutputView(),
+        verifier = CheckInputValidation()
+    )
+    gameController.userFlow()
 
-    } catch (e: IllegalArgumentException) {
-        println(e.message)
-    }
+//    } catch (e: IllegalArgumentException) {
+//        println(e.message)
+//    }
 }

@@ -42,5 +42,5 @@ class CheckInputValidation {
     private fun isRestartNumber(userInput: Int): Boolean =
         userInput in GameRule.RESTART_OK_CODE..GameRule.RESTART_NO_CODE
 
-    private fun isValidNumberSize(userInput: String): Boolean = userInput.length == GameRule.NUMBER_SIZE
+    private fun isValidNumberSize(userInput: String): Boolean = userInput.length <= GameRule.NUMBER_SIZE
 }
