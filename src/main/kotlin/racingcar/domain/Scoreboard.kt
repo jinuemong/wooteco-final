@@ -1,7 +1,6 @@
 package racingcar.domain
 
 import racingcar.util.Rule
-import java.util.Collections.max
 
 class Scoreboard(
     private val cars: Map<String, Int> = mutableMapOf()
@@ -18,7 +17,7 @@ class Scoreboard(
         return cars.filterValues { it == winnerNumber }.keys.toList()
     }
 
-    private fun getFirstCarCount() = max(cars.values)
+    private fun getFirstCarCount() = cars.values.max()
 
 
 }
