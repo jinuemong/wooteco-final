@@ -1,4 +1,4 @@
 package racingcar.domain
 
-class ScoreboardManager {
+class Scoreboard {
 }
