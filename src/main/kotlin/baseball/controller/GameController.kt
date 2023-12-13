@@ -43,6 +43,7 @@ class GameController(
             }
 
         }
+        outputView.endGame()
         checkRestart()
     }
 
