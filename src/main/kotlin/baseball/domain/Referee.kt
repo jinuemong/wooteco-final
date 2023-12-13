@@ -21,7 +21,6 @@ class Referee(
             userNumbers.forEachIndexed { index, userNumber ->
                 val findIndex = computerNumbers.indexOf(userNumber)
                 if (findIndex != -1 && findIndex != index) this.add(userNumber)
-                println(findIndex)
             }
         }.size
     }
@@ -31,7 +30,6 @@ class Referee(
             userNumbers.forEachIndexed { index, userNumber ->
                 val findIndex = computerNumbers.indexOf(userNumber)
                 if (findIndex != -1 && findIndex == index) this.add(userNumber)
-                println(findIndex)
             }
         }.size
     }
