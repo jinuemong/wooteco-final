@@ -42,6 +42,7 @@ class GameController(
             }
 
         }
+        checkRestart()
     }
 
     private fun checkRestart() {
