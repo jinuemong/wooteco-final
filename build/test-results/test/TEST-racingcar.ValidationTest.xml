@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="racingcar.ValidationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-13T17:30:58" hostname="gimjin-uui-MacBookPro.local" time="0.009">
-  <properties/>
-  <testcase name="레이싱 넘버 예외 테스트(0인 경우) ()" classname="racingcar.ValidationTest" time="0.009"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
