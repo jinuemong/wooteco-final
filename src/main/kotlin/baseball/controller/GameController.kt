@@ -51,7 +51,7 @@ class GameController(
     private fun checkRestart() {
         val userInput = inputView.enterGameRestart()
         verifier.checkRestartNumber(userInput)
-        if (userInput == GameRule.RESTART_OK_CODE){
+        if (userInput == GameRule.RESTART_OK_CODE) {
             computer.makeNumbers()
             gameProgress()
         }

@@ -8,6 +8,7 @@ object Message {
     const val RESULT_ONLY_BALL = "%d볼"
     const val RESULT_NOTTING = "낫싱"
     const val RESULT_ONLY_STRIKE = "%d스트라이크"
-    const val GAME_END = "3개의 숫자를 모두 맞히셨습니다! 게임 종료"
-    const val GAME_RESTART = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요."
+    const val GAME_END = "${GameRule.NUMBER_SIZE}개의 숫자를 모두 맞히셨습니다! 게임 종료"
+    const val GAME_RESTART = "게임을 새로 시작하려면 ${GameRule.RESTART_OK_CODE}, 종료하려면 ${GameRule.RESTART_NO_CODE}를 입력하세요."
+
 }

@@ -19,7 +19,7 @@ class Referee(
         var strike = 0
 
         userNumbers.forEachIndexed { index, userNumber ->
-            if (countStrike(index,userNumber)) strike++
+            if (countStrike(index, userNumber)) strike++
             else if (countBall(userNumber)) ball++
         }
 
