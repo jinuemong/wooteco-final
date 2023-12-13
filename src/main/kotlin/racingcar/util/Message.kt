@@ -7,6 +7,7 @@ object Message {
     const val TYPE_NUMBER = "시도할 횟수는 몇 회인가요?"
 
     const val RESULT_START = "실행 결과"
+    const val ROUND_RESULT = "%s${Form.CONNECTOR}%s"
     const val FINAL_WINNERS = "최종 우승자${Form.CONNECTOR}%s"
 
 }
