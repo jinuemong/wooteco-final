@@ -3,7 +3,7 @@ package baseball.domain
 import camp.nextstep.edu.missionutils.Randoms
 
 class Computer(
-    private val numbers: MutableList<Int>
+    private val numbers: MutableList<Int> = mutableListOf()
 ) {
 
     init {
