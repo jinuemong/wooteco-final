@@ -2,7 +2,6 @@ package racingcar.controller
 
 import racingcar.domain.Processor
 import racingcar.domain.Scoreboard
-import racingcar.domain.model.CarState
 import racingcar.util.Form
 import racingcar.validation.InputValidation
 import racingcar.view.InputView
@@ -32,18 +31,18 @@ class GameController(
 
     }
 
-    private fun playGame(){
+    private fun playGame() {
         println()
         outputView.startResult()
 
-        while(scoreboard.checkCount()){
+        while (scoreboard.checkCount()) {
             scoreboard.progressRound()
             roundResult()
             println()
         }
     }
 
-    private fun gameResult(){
+    private fun gameResult() {
         val winners = scoreboard.makeWinningDocument()
         outputView.finalResult(winners)
     }
@@ -60,7 +59,7 @@ class GameController(
         )
     }
 
-    private fun roundResult(){
+    private fun roundResult() {
         scoreboard.getCarNames().forEach { name ->
             scoreboard.getMatchCount(name)?.let { outputView.carProgressResult(name, it) }
         }

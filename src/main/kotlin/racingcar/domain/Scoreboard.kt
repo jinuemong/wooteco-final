@@ -2,6 +2,7 @@ package racingcar.domain
 
 import racingcar.domain.model.CarState
 import racingcar.util.Form
+import racingcar.util.Rule
 
 class Scoreboard(
     private val processor: Processor,
@@ -21,11 +22,11 @@ class Scoreboard(
         currentRound += 1
     }
 
-    fun getMatchCount(name : String): Int? = cars[name]
+    fun getMatchCount(name: String): Int? = cars[name]
 
     private fun racingCar(name: String) {
         when (processor.getProcess()) {
-            CarState.FORWARD -> cars[name] = (cars[name] ?: 0) + 1
+            CarState.FORWARD -> cars[name] = (cars[name] ?: 0) + Rule.CAR_PROGRESS
             CarState.STOP -> {}
         }
     }
