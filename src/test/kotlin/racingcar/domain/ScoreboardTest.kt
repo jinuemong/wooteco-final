@@ -13,7 +13,7 @@ class ScoreboardTest {
     )
 
     @Test
-    fun `정상적인 라운드 증가 테스트`(){
+    fun `정상적인 라운드 증가 테스트`() {
         repeat(5) {
             scoreboard.progressRound()
             assertThat(scoreboard.checkCount())
@@ -25,8 +25,8 @@ class ScoreboardTest {
     }
 
     @Test
-    fun `우승자 선정 기능 테스트`(){
-        assertThat(scoreboard.makeWinningDocument()=="ab, cd, ef")
+    fun `우승자 선정 기능 테스트`() {
+        assertThat(scoreboard.makeWinningDocument() == "ab, cd, ef")
     }
 
 }
