@@ -1,6 +1,8 @@
 package racingcar.domain
 
+import racingcar.util.Form
 import racingcar.util.Rule
+
 
 class Scoreboard(
     private val cars: Map<String, Int> = mutableMapOf()
@@ -12,7 +14,9 @@ class Scoreboard(
         }
     }
 
-    fun findWinner(): List<String> {
+    fun makeWinningDocument(): String = findWinner().joinToString(Form.RESULT_SEPARATOR)
+
+    private fun findWinner(): List<String> {
         val winnerNumber = getFirstCarCount()
         return cars.filterValues { it == winnerNumber }.keys.toList()
     }
