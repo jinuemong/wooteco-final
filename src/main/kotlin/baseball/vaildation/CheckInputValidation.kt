@@ -11,6 +11,12 @@ class CheckInputValidation {
         }
     }
 
+    fun checkRestartNumber(userInput: String) {
+        require(isNumber(userInput) && isRestartNumber(userInput.toInt())){
+            Error.NOT_VALID_RESTART
+        }
+    }
+
     private fun isNumber(userInput: String): Boolean {
         return try {
             userInput.toInt()
@@ -21,4 +27,6 @@ class CheckInputValidation {
     }
 
     private fun isSingleDigit(userInput: String): Boolean = userInput.toInt() in 1..9
+
+    private fun isRestartNumber(userInput: Int): Boolean = userInput in 1..2
 }

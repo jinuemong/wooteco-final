@@ -2,8 +2,8 @@ package baseball.controller
 
 import baseball.domain.Computer
 import baseball.domain.Referee
-import baseball.domain.model.ResultCounter
 import baseball.domain.model.ResultState
+import baseball.util.GameRule
 import baseball.vaildation.CheckInputValidation
 import baseball.view.InputView
 import baseball.view.OutputView
@@ -64,7 +64,7 @@ class GameController(
         }
     }
 
-    private fun checkEndGame(result: Int): Boolean = result == 3
+    private fun checkEndGame(result: Int): Boolean = result == GameRule.END_STRIKE_COUNT
 
 
 }
