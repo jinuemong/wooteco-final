@@ -5,7 +5,7 @@ import java.lang.NumberFormatException
 
 class CheckInputValidation {
 
-    private fun checkIsValidNumber(userInput: String) {
+    fun checkIsValidNumber(userInput: String) {
         require(isNumber(userInput) && isSingleDigit(userInput)) {
             Error.NOT_VALID_NUMBER
         }

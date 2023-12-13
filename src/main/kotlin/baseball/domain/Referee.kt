@@ -7,14 +7,13 @@ class Referee(
     private val computerNumbers: List<Int>
 ) {
 
-    fun checkResult(userNumbers: List<Int>): Pair<ResultState, Map<ResultCounter, Int>> {
+    fun checkResult(userNumbers: List<Int>): Triple<ResultState, Int, Int> {
         val ball = countBall(userNumbers)
         val strike = countStrike(userNumbers)
-        val resultCounter = mapOf(ResultCounter.BALL to ball, ResultCounter.STRIKE to strike)
-        return if (ball > 0 && strike > 0) Pair(ResultState.STRIKE_AND_BALL, resultCounter)
-        else if (ball > 0) Pair(ResultState.BALL, resultCounter)
-        else if (strike > 0) Pair(ResultState.STRIKE, resultCounter)
-        else Pair(ResultState.NOTTING, resultCounter)
+        return if (ball > 0 && strike > 0) Triple(ResultState.STRIKE_AND_BALL, ball, strike)
+        else if (ball > 0) Triple(ResultState.BALL, ball, strike)
+        else if (strike > 0) Triple(ResultState.STRIKE, ball, strike)
+        else Triple(ResultState.NOTTING, ball, strike)
     }
 
     private fun countBall(userNumbers: List<Int>): Int {
