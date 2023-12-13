@@ -12,5 +12,7 @@ class OutputView {
 
     fun resultStrike(strike: Int) = println(Message.RESULT_ONLY_STRIKE.format(strike))
 
+    fun resultNotting() = println(Message.RESULT_NOTTING)
+
     fun endGame() = println(Message.GAME_END)
 }
