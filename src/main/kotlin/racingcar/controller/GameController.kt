@@ -15,14 +15,14 @@ class GameController(
     lateinit var scoreboard: Scoreboard
 
     fun userFlow(){
-
+        gameStart()
     }
 
-    fun gameStart(){
+    private fun gameStart(){
         val userInput = inputView.inputCarNames()
         verifier.checkAccuracyCarNames(userInput)
 
-        val gameCount = inputView.inputCarNames()
+        val gameCount = inputView.inputNumber()
         verifier.checkAccuracyRacingNumber(gameCount)
 
     }
