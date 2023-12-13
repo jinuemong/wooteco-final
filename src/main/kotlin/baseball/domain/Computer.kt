@@ -1,5 +1,6 @@
 package baseball.domain
 
+import baseball.util.GameRule
 import camp.nextstep.edu.missionutils.Randoms
 
 class Computer(
@@ -11,8 +12,8 @@ class Computer(
     }
 
     private fun makeNumbers() {
-        while (numbers.size < 3) {
-            pickNumber(Randoms.pickNumberInRange(1, 9))
+        while (numbers.size < GameRule.NUMBER_SIZE) {
+            pickNumber(Randoms.pickNumberInRange(GameRule.MIN_NUMBER, GameRule.MAX_NUMBER))
         }
     }
 

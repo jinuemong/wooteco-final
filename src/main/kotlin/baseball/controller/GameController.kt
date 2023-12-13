@@ -36,6 +36,7 @@ class GameController(
                     outputView.resultStrike(strike)
                     if (checkEndGame(strike)) break
                 }
+
                 ResultState.BALL -> outputView.resultBall(ball)
                 ResultState.STRIKE_AND_BALL -> outputView.resultBailAndStrike(ball, strike)
                 ResultState.NOTTING -> outputView.resultNotting()
@@ -46,9 +47,9 @@ class GameController(
     }
 
     private fun checkRestart() {
-        inputView.enterGameRestart().let {number ->
+        inputView.enterGameRestart().let { number ->
             verifier.checkRestartNumber(number)
-            if (number.toInt() == GameRule.RESTART_OK_CODE ) gameProgress()
+            if (number.toInt() == GameRule.RESTART_OK_CODE) gameProgress()
         }
     }
 
@@ -59,15 +60,17 @@ class GameController(
     }
 
     private fun makeUserNumbers(): List<Int> {
-        return mutableListOf<Int>().apply {
-            inputView.enterNumber().let { newNumber ->
-                verifier.checkIsValidNumber(newNumber)
-                add(newNumber.toInt())
-            }
+        inputView.enterNumber().let { numbers ->
+            verifier.checkIsValidNumber(numbers)
+            return switchNumbers(numbers)
         }
     }
 
     private fun checkEndGame(result: Int): Boolean = result == GameRule.END_STRIKE_COUNT
 
-
+    private fun switchNumbers(numbers: String): List<Int> {
+        return numbers.map { number ->
+            number.digitToInt()
+        }
+    }
 }
