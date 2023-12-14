@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lotto.InputValidationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-14T11:51:47" hostname="gimjin-uui-MacBookPro.local" time="0.008">
-  <properties/>
-  <testcase name="사용자 구매 금액이 정확하지 않은 경우 예외 테스트()" classname="lotto.InputValidationTest" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
