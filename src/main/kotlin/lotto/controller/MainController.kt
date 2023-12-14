@@ -66,16 +66,17 @@ class MainController(
         println()
 
         var bonusNumber = ""
+        val winningNumbers = makeWinningNumbers(numbers)
 
         while (bonusNumber.isEmpty()) {
             try {
-                bonusNumber = getBonusNumber()
+                bonusNumber = getBonusNumber(winningNumbers)
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
 
-        initWinningManager(makeWinningNumbers(numbers), bonusNumber.toInt())
+        initWinningManager(winningNumbers, bonusNumber.toInt())
 
     }
 
@@ -101,9 +102,9 @@ class MainController(
         return newNumbers
     }
 
-    private fun getBonusNumber(): String {
+    private fun getBonusNumber(winningNumbers: Set<Int>): String {
         val newBonusNumber = inputView.inputBonusNumber()
-        lottoVerifier.checkAccuracyBonusNumber(newBonusNumber)
+        lottoVerifier.checkAccuracyBonusNumber(newBonusNumber, winningNumbers)
         return newBonusNumber
     }
 

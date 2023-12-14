@@ -15,13 +15,19 @@ class LottoValidation {
         numbers.forEach { number ->
             checkAccuracyLottoNumber(number)
         }
+
+        require(checkLottoDuplicate(numbers)) {
+            Error.DUPLICATE_NUM
+        }
     }
 
-    fun checkAccuracyBonusNumber(input: String) {
+    fun checkAccuracyBonusNumber(input: String, numbers: Set<Int>) {
 
         require(checkIsNumber(input) && checkIsLottoNum(input.toInt())) {
             Error.INCORRECT_LOTTO_NUM
         }
+
+        require(checkBonusDuplicate(input.toInt(), numbers))
     }
 
     private fun checkAccuracyLottoNumber(number: String) {
@@ -29,6 +35,10 @@ class LottoValidation {
             Error.INCORRECT_LOTTO_NUM
         }
     }
+
+    private fun checkLottoDuplicate(numbers: List<String>): Boolean = numbers.size == numbers.toSet().size
+
+    private fun checkBonusDuplicate(number: Int, numbers: Set<Int>): Boolean = numbers.contains(number)
 
     private fun checkIsNumber(userInput: String): Boolean {
         return try {
