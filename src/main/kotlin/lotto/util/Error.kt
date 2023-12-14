@@ -11,4 +11,5 @@ object Error {
     const val INCORRECT_LOTTO_NUM = "$ERR_MSG 정확하지 않은 로또 번호가 있습니다."
     const val INCORRECT_LOTTO_COUNT = "$ERR_MSG 로또 수가 ${Rule.LOTTO_COUNT} 아닙니다."
 
+    const val DUPLICATE_NUM = "$ERR_MSG 중복 된 번호가 있습니다."
 }
