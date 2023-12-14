@@ -38,7 +38,6 @@ class MainController(
     }
 
     private fun makeUserLotto() {
-
     }
 
     private fun makeWinningLotto() {

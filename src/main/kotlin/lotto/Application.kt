@@ -7,11 +7,15 @@ import lotto.view.InputView
 import lotto.view.OutputView
 
 fun main() {
-    val controller = MainController(
-        inputView = InputView(),
-        outputView = OutputView(),
-        inputVerifier = InputValidation(),
-        lottoVerifier = LottoValidation()
-    )
-    controller.userFlow()
+    try{
+        val controller = MainController(
+            inputView = InputView(),
+            outputView = OutputView(),
+            inputVerifier = InputValidation(),
+            lottoVerifier = LottoValidation()
+        )
+        controller.userFlow()
+    } catch (e: IllegalArgumentException){
+        println(e.message)
+    }
 }
