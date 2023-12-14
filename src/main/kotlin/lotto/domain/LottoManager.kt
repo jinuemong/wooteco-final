@@ -28,6 +28,10 @@ class LottoManager(
         }
     }
 
+    fun getTotalRate(winningPrice: Int): Double {
+        return (winningPrice.toDouble()/price.toDouble() * 100)
+    }
+
     fun lottoCount(): Int = lottoBundle.size
 
     private fun purchaseLotto(){

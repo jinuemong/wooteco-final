@@ -22,6 +22,7 @@ class MainController(
         makeUserLotto()
         makeWinningLotto()
         matchingLotto()
+        resultInfo()
     }
 
     private fun userPurchase() {
@@ -82,8 +83,14 @@ class MainController(
         lottoManager.makeLottoSets().forEach { numbers ->
             winningManager.confirmWinning(numbers)
         }
-        // 임시 코드
-        println(winningManager.getTotalPrice())
+
+    }
+
+    private fun resultInfo(){
+        outputView.outputStartResult()
+        val totalRate = lottoManager.getTotalRate(winningManager.getTotalPrice())
+
+        outputView.outputRate(totalRate)
     }
 
     private fun getLottoNumbers(): String {

@@ -10,12 +10,22 @@ class WinningManager(
 ) {
     private val lottoResult: MutableMap<ResultState, Int> = mutableMapOf()
 
+    init {
+        ResultState.entries.forEach { lottoResult[it] = 0 }
+    }
+
     fun confirmWinning(numbers: Set<Int>) {
         val remainingNumbers = checkMatchNum(numbers)
         val winningCount = getWinningCount(remainingNumbers)
         val bonus = checkBonus(remainingNumbers)
         ResultState.getResult(winningCount, bonus)?.let { resultState ->
             lottoResult[resultState] = (lottoResult[resultState] ?: 0) + 1
+        }
+    }
+
+    fun getLottoResults(): List<Pair<String,Int>>{
+        return lottoResult.map { (resultState,count) ->
+            resultState.getMessage() to count
         }
     }
 
