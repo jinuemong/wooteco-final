@@ -11,4 +11,5 @@ class Lotto(private val numbers: List<Int>) {
         numbers.sorted().joinToString("${Form.LOTTO_SEPARATOR} ")
 
     fun convertSetVale() = numbers.toSet()
+
 }

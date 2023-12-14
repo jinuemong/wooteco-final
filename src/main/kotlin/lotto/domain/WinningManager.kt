@@ -8,6 +8,7 @@ class WinningManager(
     private val winningNumbers: Set<Int>,
     private val bonusNumber: Int
 ) {
+
     private val lottoResult: MutableMap<ResultState, Int> = mutableMapOf()
 
     init {
@@ -23,8 +24,8 @@ class WinningManager(
         }
     }
 
-    fun getLottoResults(): List<Pair<String,Int>>{
-        return lottoResult.map { (resultState,count) ->
+    fun getLottoResults(): List<Pair<String, Int>> {
+        return lottoResult.map { (resultState, count) ->
             resultState.getMessage() to count
         }
     }

@@ -6,4 +6,5 @@ object Form {
     const val FORM_START_LOTTO = "["
     const val FORM_END_LOTTO = "]"
     const val UNIT_COUNT = "개"
+
 }

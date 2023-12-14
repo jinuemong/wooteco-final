@@ -21,9 +21,9 @@ class OutputView {
         println("$message ${result}${Form.UNIT_COUNT}")
     }
 
-    fun outputRate(rate: Double){
+    fun outputRate(rate: Double) {
         println(rate.toString())
-        println("총 수익률은 ${String.format(RATE_FORMAT,rate)}%입니다.")
+        println("총 수익률은 ${String.format(RATE_FORMAT, rate)}%입니다.")
     }
 
     companion object {

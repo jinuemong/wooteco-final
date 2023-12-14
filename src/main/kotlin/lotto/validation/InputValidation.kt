@@ -6,17 +6,17 @@ import java.lang.NumberFormatException
 
 class InputValidation() {
 
-    fun checkAccuracyPurchasePrice(input: String){
+    fun checkAccuracyPurchasePrice(input: String) {
 
-        require(checkIsNumber(input)){
+        require(checkIsNumber(input)) {
             Error.INCORRECT_NUMBER
         }
 
-        require(checkMinimumPrice(input.toInt())){
+        require(checkMinimumPrice(input.toInt())) {
             Error.INSUFFICIENT_AMOUNT
         }
 
-        require(checkCorrectPrice(input.toInt())){
+        require(checkCorrectPrice(input.toInt())) {
             Error.INCORRECT_AMOUNT
         }
 
