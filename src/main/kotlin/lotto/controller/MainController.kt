@@ -2,6 +2,7 @@ package lotto.controller
 
 import lotto.domain.LottoManager
 import lotto.domain.WinningManager
+import lotto.util.Form
 import lotto.validation.InputValidation
 import lotto.validation.LottoValidation
 import lotto.view.InputView
@@ -20,6 +21,7 @@ class MainController(
         userPurchase()
         makeUserLotto()
         makeWinningLotto()
+        matchingLotto()
     }
 
     private fun userPurchase() {
@@ -72,8 +74,16 @@ class MainController(
             }
         }
 
-        initWinningManager()
+        initWinningManager(makeWinningNumbers(numbers), bonusNumber.toInt())
 
+    }
+
+    private fun matchingLotto() {
+        lottoManager.makeLottoSets().forEach { numbers ->
+            winningManager.confirmWinning(numbers)
+        }
+        // 임시 코드
+        println(winningManager.getTotalPrice())
     }
 
     private fun getLottoNumbers(): String {
@@ -95,8 +105,15 @@ class MainController(
         )
     }
 
-    private fun initWinningManager() {
-        winningManager = WinningManager()
+    private fun makeWinningNumbers(input: String): Set<Int> {
+        return input.split(Form.LOTTO_SEPARATOR).map { it.toInt() }.toSet()
+    }
+
+    private fun initWinningManager(
+        numbers: Set<Int>,
+        bonusNumber: Int
+    ) {
+        winningManager = WinningManager(numbers, bonusNumber)
     }
 
 }
