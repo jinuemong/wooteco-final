@@ -22,7 +22,6 @@ class OutputView {
     }
 
     fun outputRate(rate: Double) {
-        println(rate.toString())
         println("총 수익률은 ${String.format(RATE_FORMAT, rate)}%입니다.")
     }
 
