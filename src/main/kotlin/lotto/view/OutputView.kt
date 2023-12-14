@@ -2,7 +2,6 @@ package lotto.view
 
 import lotto.util.Form
 import lotto.util.Message
-import java.text.DecimalFormat
 
 class OutputView {
 
@@ -19,7 +18,7 @@ class OutputView {
     }
 
     fun outputResult(message: String, result: Int) {
-        println("$message ${DecimalFormat(RETURN_FORMAT).format(result)}${Form.UNIT_COUNT}")
+        println("$message ${result}${Form.UNIT_COUNT}")
     }
 
     fun outputRate(rate: Double){

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="racingcar.domain.ScoreboardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-13T17:41:44" hostname="gimjin-uui-MacBookPro.local" time="0.027">
-  <properties/>
-  <testcase name="우승자 선정 기능 테스트()" classname="racingcar.domain.ScoreboardTest" time="0.027"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

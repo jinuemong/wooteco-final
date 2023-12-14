@@ -86,10 +86,12 @@ class MainController(
 
     }
 
-    private fun resultInfo(){
+    private fun resultInfo() {
         outputView.outputStartResult()
         val totalRate = lottoManager.getTotalRate(winningManager.getTotalPrice())
-
+        winningManager.getLottoResults().forEach { result ->
+            outputView.outputResult(result.first, result.second)
+        }
         outputView.outputRate(totalRate)
     }
 
