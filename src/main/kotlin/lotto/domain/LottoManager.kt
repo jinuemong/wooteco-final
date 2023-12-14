@@ -22,6 +22,12 @@ class LottoManager(
         }
     }
 
+    fun makeLottoSet(): List<Set<Int>>{
+        return lottoBundle.map {
+            it.convertSetVale()
+        }
+    }
+
     fun lottoCount(): Int = lottoBundle.size
 
     private fun purchaseLotto(){
