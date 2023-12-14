@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lotto.ResultStateTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-14T13:17:34" hostname="gimjin-uui-MacBookPro.local" time="0.008">
-  <properties/>
-  <testcase name="예외 처리에 대한 테스트()" classname="lotto.ResultStateTest" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
