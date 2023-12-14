@@ -1,6 +1,5 @@
 package lotto.domain
 
-import lotto.domain.model.Lotto
 import lotto.domain.model.ResultState
 import lotto.util.Rule
 
@@ -40,7 +39,6 @@ class WinningManager(
     private fun getWinningCount(remainingNumbers: Set<Int>) = Rule.LOTTO_COUNT - remainingNumbers.size
 
     private fun checkMatchNum(numbers: Set<Int>): Set<Int> = numbers - winningNumbers
-
 
     private fun checkBonus(remainingNumbers: Set<Int>): Boolean = remainingNumbers.contains(bonusNumber)
 

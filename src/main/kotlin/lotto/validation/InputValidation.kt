@@ -4,7 +4,7 @@ import lotto.util.Error
 import lotto.util.Rule
 import java.lang.NumberFormatException
 
-class InputValidation() {
+class InputValidation {
 
     fun checkAccuracyPurchasePrice(input: String) {
 
