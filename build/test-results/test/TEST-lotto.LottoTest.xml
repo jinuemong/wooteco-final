@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lotto.LottoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-14T11:31:29" hostname="gimjin-uui-MacBookPro.local" time="0.022">
-  <properties/>
-  <testcase name="로또 번호의 개수가 6개가 넘어가면 예외가 발생한다()" classname="lotto.LottoTest" time="0.016"/>
-  <testcase name="로또 번호에 1~45 사이의 수가 아닌 것이 있으면 예외가 발생한다()" classname="lotto.LottoTest" time="0.003"/>
-  <testcase name="로또 번호에 중복된 숫자가 있으면 예외가 발생한다()" classname="lotto.LottoTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
