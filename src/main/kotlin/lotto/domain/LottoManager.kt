@@ -8,19 +8,25 @@ import lotto.validation.LottoValidation
 
 class LottoManager(
     private val lottoVerifier: LottoValidation,
-    private val lottoCount: Int
+    private val price: Int
 ) {
     private var lottoBundle = mutableListOf<Lotto>()
 
-    fun purchaseLotto(){
-        repeat(lottoCount){
-            makeOneLotto()
-        }
+    init {
+        purchaseLotto()
     }
 
     fun makeOutputValues(): List<String>{
         return lottoBundle.map {
             it.convertOutputValue()
+        }
+    }
+
+    fun lottoCount(): Int = lottoBundle.size
+
+    private fun purchaseLotto(){
+        repeat(price.div(Rule.LOTTO_PRICE)){
+            makeOneLotto()
         }
     }
 

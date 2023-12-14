@@ -28,7 +28,7 @@ class MainController(
                 val price = inputView.inputPurchasePrice()
                 inputVerifier.checkAccuracyPurchasePrice(price)
 
-                initLottoManager()
+                initLottoManager(price.toInt())
 
             } catch (e: IllegalArgumentException) {
                 println(e.message)
@@ -38,31 +38,42 @@ class MainController(
     }
 
     private fun makeUserLotto() {
+        println()
+        outputView.outputLottoCount(lottoManager.lottoCount())
+        val lottoNumbers = lottoManager.makeOutputValues()
+        lottoNumbers.forEach { lottoNumber ->
+            outputView.outputLottoNumbers(lottoNumber)
+        }
+        println()
     }
 
     private fun makeWinningLotto() {
+
         var numbers = ""
 
-        while (numbers.isEmpty()){
-            try{
+        while (numbers.isEmpty()) {
+            try {
                 numbers = getLottoNumbers()
-            } catch (e: IllegalArgumentException){
+            } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
 
         }
 
+        println()
+
         var bonusNumber = ""
 
-        while(bonusNumber.isEmpty()){
+        while (bonusNumber.isEmpty()) {
             try {
                 bonusNumber = getBonusNumber()
-            } catch (e: IllegalArgumentException){
+            } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
 
         initWinningManager()
+
     }
 
     private fun getLottoNumbers(): String {
@@ -77,12 +88,15 @@ class MainController(
         return newBonusNumber
     }
 
-
-    private fun initLottoManager() {
-        lottoManager = LottoManager()
+    private fun initLottoManager(price: Int) {
+        lottoManager = LottoManager(
+            lottoVerifier = lottoVerifier,
+            price = price
+        )
     }
 
     private fun initWinningManager() {
         winningManager = WinningManager()
     }
+
 }

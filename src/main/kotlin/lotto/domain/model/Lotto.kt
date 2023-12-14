@@ -7,5 +7,6 @@ class Lotto(private val numbers: List<Int>) {
         require(numbers.size == 6)
     }
 
-    fun convertOutputValue() = numbers.joinToString("${Form.LOTTO_SEPARATOR} ")
+    fun convertOutputValue() =
+        numbers.sorted().joinToString("${Form.LOTTO_SEPARATOR} ")
 }
