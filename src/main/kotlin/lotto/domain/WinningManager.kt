@@ -1,4 +1,37 @@
 package lotto.domain
 
-class WinningManager {
+import lotto.domain.model.Lotto
+import lotto.domain.model.ResultState
+import lotto.util.Rule
+
+class WinningManager(
+    private val winningNumbers: Set<Int>,
+    private val bonusNumber: Int
+) {
+    private val lottoResult: MutableMap<ResultState, Int> = mutableMapOf()
+
+    fun confirmWinning(lotto: Lotto) {
+        val remainingNumbers = checkMatchNum(lotto.convertSetVale())
+        val winningCount = getWinningCount(remainingNumbers)
+        val bonus = checkBonus(remainingNumbers)
+        ResultState.getResult(winningCount, bonus)?.let { resultState ->
+            lottoResult[resultState] = (lottoResult[resultState] ?: 0) + 1
+        }
+    }
+
+
+    fun getTotalPrice(): Int {
+        return lottoResult.map { (resultState, count) ->
+            resultState.getPrice(count)
+        }.sum()
+    }
+
+    private fun getWinningCount(remainingNumbers: Set<Int>) = Rule.LOTTO_COUNT - remainingNumbers.size
+
+    private fun checkMatchNum(numbers: Set<Int>): Set<Int> = numbers - winningNumbers
+
+
+    private fun checkBonus(remainingNumbers: Set<Int>): Boolean = remainingNumbers.contains(bonusNumber)
+
+
 }
