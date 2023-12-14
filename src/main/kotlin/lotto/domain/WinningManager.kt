@@ -10,8 +10,8 @@ class WinningManager(
 ) {
     private val lottoResult: MutableMap<ResultState, Int> = mutableMapOf()
 
-    fun confirmWinning(lotto: Lotto) {
-        val remainingNumbers = checkMatchNum(lotto.convertSetVale())
+    fun confirmWinning(numbers: Set<Int>) {
+        val remainingNumbers = checkMatchNum(numbers)
         val winningCount = getWinningCount(remainingNumbers)
         val bonus = checkBonus(remainingNumbers)
         ResultState.getResult(winningCount, bonus)?.let { resultState ->

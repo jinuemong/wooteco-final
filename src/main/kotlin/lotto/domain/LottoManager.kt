@@ -22,7 +22,7 @@ class LottoManager(
         }
     }
 
-    fun makeLottoSet(): List<Set<Int>>{
+    fun makeLottoSets(): List<Set<Int>>{
         return lottoBundle.map {
             it.convertSetVale()
         }
