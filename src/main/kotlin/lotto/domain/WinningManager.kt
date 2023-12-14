@@ -1,5 +1,4 @@
 package lotto.domain
 
-class LottoManager {
-
+class WinningManager {
 }
