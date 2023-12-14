@@ -12,13 +12,13 @@ class LottoManagerTest {
     )
 
     @Test
-    fun `수익률 계산 정확성 테스트`(){
-        assertThat(lottoManager.getTotalRate(10000)==100.toDouble())
+    fun `수익률 계산 정확성 테스트`() {
+        assertThat(lottoManager.getTotalRate(10000) == 100.toDouble())
     }
 
     @Test
-    fun `로또 구매량 정확성 테스트`(){
-        assertThat(lottoManager.lottoCount()==10)
+    fun `로또 구매량 정확성 테스트`() {
+        assertThat(lottoManager.lottoCount() == 10)
     }
 
 }
