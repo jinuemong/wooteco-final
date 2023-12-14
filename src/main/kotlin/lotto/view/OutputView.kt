@@ -18,7 +18,7 @@ class OutputView {
     }
 
     fun outputResult(message: String, result: Int) {
-        println("$message ${result}${Form.FORM_RESULT_COUNT}")
+        println("$message ${result}${Form.UNIT_COUNT}")
     }
 
     fun outputRate(rate: String){
