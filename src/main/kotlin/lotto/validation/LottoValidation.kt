@@ -8,7 +8,7 @@ import java.lang.NumberFormatException
 class LottoValidation {
 
     fun checkAccuracyLottoNumbers(input: String) {
-        val numbers = input.split("${Form.LOTTO_SEPARATOR} ")
+        val numbers = input.split(Form.LOTTO_SEPARATOR)
         require(checkLottoCount(numbers)) {
             Error.INCORRECT_LOTTO_COUNT
         }
