@@ -1,9 +1,6 @@
 package christmas.domain
 
-import christmas.domain.model.BenefitInfo
-import christmas.domain.model.EventDayOfWeek
-import christmas.domain.model.MenuInfo
-import christmas.domain.model.MenuType
+import christmas.domain.model.*
 import christmas.utils.Rule
 
 class EventPlanner(
@@ -28,7 +25,7 @@ class EventPlanner(
         }
     }
 
-    fun computeStarDay(date: Int){
+    fun computeStarDay(date: Int) {
         if (eventCalendar.checkStartDay(date))
             eventBenefit[BenefitInfo.SPECIAL_DISCOUNT] = Rule.STAR_DISCOUNT
     }
@@ -36,6 +33,14 @@ class EventPlanner(
     fun computeTotalPrice() {
         if (kiosk.getTotalOrderPrice() >= Rule.MIN_GIVEAWAY_PRICE)
             eventBenefit[BenefitInfo.GIVEAWAY_EVENT] = MenuInfo.getCurrentGiveawayPrice()
+    }
+
+    fun computeGiveBadge(): Badge {
+        return Badge.getPriceBadge(computeTotalBenefit())
+    }
+
+    private fun computeTotalBenefit(): Int {
+        return eventBenefit.values.sum()
     }
 
     private fun computeWeekend(): Int {
