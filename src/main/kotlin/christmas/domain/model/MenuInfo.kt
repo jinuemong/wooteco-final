@@ -4,6 +4,7 @@ import christmas.domain.model.appetizer.Appetizer
 import christmas.domain.model.beverage.Beverage
 import christmas.domain.model.dessert.Dessert
 import christmas.domain.model.mainMenu.MainMenu
+import christmas.utils.Error
 import christmas.utils.Form
 
 enum class MenuInfo(
@@ -55,8 +56,9 @@ enum class MenuInfo(
             }
         }
 
-        fun getMenuInfo(menuName: String): MenuInfo? {
+        fun getMenuInfo(menuName: String): MenuInfo {
             return entries.find { it.menuName == menuName }
+                ?: throw IllegalArgumentException(Error.WRONG_MENU)
         }
 
         fun getCurrentGiveawayInfo() =
