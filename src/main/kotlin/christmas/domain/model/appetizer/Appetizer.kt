@@ -5,11 +5,12 @@ import christmas.domain.model.MenuInfo
 import christmas.domain.model.MenuType
 
 sealed class Appetizer(
+    menuType: MenuType,
     menuInfo: MenuInfo
-): Menu(MenuType.APPETIZER,menuInfo) {
+): Menu(menuType,menuInfo) {
 
-    class MushroomSoup(menuInfo:MenuInfo): Appetizer(menuInfo)
-    class Tapas(menuInfo:MenuInfo): Appetizer(menuInfo)
-    class CaesarSalad(menuInfo:MenuInfo): Appetizer(menuInfo)
+    class MushroomSoup(menuType: MenuType,menuInfo:MenuInfo): Appetizer(menuType,menuInfo)
+    class Tapas(menuType: MenuType,menuInfo:MenuInfo): Appetizer(menuType,menuInfo)
+    class CaesarSalad(menuType: MenuType,menuInfo:MenuInfo): Appetizer(menuType,menuInfo)
 
 }

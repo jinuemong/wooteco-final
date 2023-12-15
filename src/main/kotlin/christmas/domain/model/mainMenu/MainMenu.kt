@@ -5,12 +5,13 @@ import christmas.domain.model.MenuInfo
 import christmas.domain.model.MenuType
 
 sealed class MainMenu(
-    private val menuInfo: MenuInfo
-) : Menu(MenuType.MAIN, menuInfo) {
+    menuType: MenuType,
+    menuInfo: MenuInfo
+) : Menu(menuType, menuInfo) {
 
-    class TBoneSteak(menuInfo: MenuInfo) : MainMenu(menuInfo)
-    class BarbecueRib(menuInfo: MenuInfo) : MainMenu(menuInfo)
-    class SeafoodPasta(menuInfo: MenuInfo) : MainMenu(menuInfo)
-    class ChristmasPasta(menuInfo: MenuInfo) : MainMenu(menuInfo)
+    class TBoneSteak(menuType: MenuType, menuInfo: MenuInfo) : MainMenu(menuType, menuInfo)
+    class BarbecueRib(menuType: MenuType, menuInfo: MenuInfo) : MainMenu(menuType, menuInfo)
+    class SeafoodPasta(menuType: MenuType, menuInfo: MenuInfo) : MainMenu(menuType, menuInfo)
+    class ChristmasPasta(menuType: MenuType, menuInfo: MenuInfo) : MainMenu(menuType, menuInfo)
 
 }

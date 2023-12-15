@@ -5,9 +5,10 @@ import christmas.domain.model.MenuInfo
 import christmas.domain.model.MenuType
 
 sealed class Dessert(
-    private val menuInfo: MenuInfo
-): Menu(MenuType.DESSERT,menuInfo) {
+    menuType: MenuType,
+     menuInfo: MenuInfo
+): Menu(menuType,menuInfo) {
 
-    class ChocolateCake(menuInfo: MenuInfo) : Dessert(menuInfo)
-    class IceCream(menuInfo: MenuInfo): Dessert(menuInfo)
+    class ChocolateCake(menuType: MenuType,menuInfo: MenuInfo) : Dessert(menuType,menuInfo)
+    class IceCream(menuType: MenuType,menuInfo: MenuInfo): Dessert(menuType,menuInfo)
 }
