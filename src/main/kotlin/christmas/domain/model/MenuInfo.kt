@@ -61,6 +61,7 @@ enum class MenuInfo(
 
         fun getCurrentGiveawayInfo() =
             "${CURRENT_GIVEAWAY.menuName} ${CURRENT_GIVEAWAY_COUNT}${Form.UNIT_MENU}"
+        fun getCurrentGiveawayPrice() = CURRENT_GIVEAWAY.price
     }
 
 }

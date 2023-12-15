@@ -9,6 +9,5 @@ enum class MenuType(
     DESSERT("디저트"),
     BEVERAGE("음료");
 
-    fun getMenuType() = this.type
 
 }

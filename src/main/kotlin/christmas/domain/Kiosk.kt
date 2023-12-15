@@ -1,6 +1,7 @@
 package christmas.domain
 
 import christmas.domain.model.Menu
+import christmas.domain.model.MenuType
 
 class Kiosk {
 
@@ -16,13 +17,13 @@ class Kiosk {
         }.sum()
     }
 
-    fun getOrderMenuPrice(menu: Menu): Int {
-        return menus[menu]?.let {
-            return it * menu.getMenuPrice()
-        } ?: 0
+    fun getOrderMenuTypeCount(menuType: MenuType): Int {
+        return menus.keys.count {
+            it.getMenuType() == menuType
+        }
     }
 
-    fun checkOrderCount(): Int{
+    fun checkOrderCount(): Int {
         return menus.values.sum()
     }
 }

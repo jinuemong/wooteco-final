@@ -8,5 +8,6 @@ open class Menu(
 ) {
 
     fun getMenuPrice(): Int = menuInfo.getOrderPrice()
+    fun getMenuType(): MenuType = menuType
 
 }
