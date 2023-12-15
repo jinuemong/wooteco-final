@@ -9,8 +9,8 @@ sealed class Beverage(
     menuInfo: MenuInfo
 ) : Menu(menuType, menuInfo) {
 
-    class ZeroCola(menuType: MenuType,menuInfo: MenuInfo) : Beverage(menuType,menuInfo)
-    class RedWine(menuType: MenuType,menuInfo: MenuInfo) : Beverage(menuType,menuInfo)
-    class Champagne(menuType: MenuType,menuInfo: MenuInfo) : Beverage(menuType,menuInfo)
+    class ZeroCola(menuType: MenuType, menuInfo: MenuInfo) : Beverage(menuType, menuInfo)
+    class RedWine(menuType: MenuType, menuInfo: MenuInfo) : Beverage(menuType, menuInfo)
+    class Champagne(menuType: MenuType, menuInfo: MenuInfo) : Beverage(menuType, menuInfo)
 
 }

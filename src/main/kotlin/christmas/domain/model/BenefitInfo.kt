@@ -1,7 +1,5 @@
 package christmas.domain.model
 
-import christmas.utils.Form
-
 enum class BenefitInfo(
     private val message: String
 ) {

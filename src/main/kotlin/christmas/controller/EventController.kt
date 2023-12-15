@@ -4,7 +4,6 @@ import christmas.domain.EventCalendar
 import christmas.domain.EventPlanner
 import christmas.domain.Kiosk
 import christmas.domain.model.MenuInfo
-import christmas.utils.Form
 import christmas.utils.Message
 import christmas.utils.Rule
 import christmas.view.InputView
@@ -51,8 +50,8 @@ class EventController(
                 val userInput = inputView.requireMenu()
                 val names = getNames(userInput)
                 val numbers = getNumbers(userInput)
-                userValidation.checkMenus(names,numbers)
-                initKiosk(names,numbers)
+                userValidation.checkMenus(names, numbers)
+                initKiosk(names, numbers)
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
@@ -88,7 +87,7 @@ class EventController(
             val menu = MenuInfo.getMenu(MenuInfo.getMenuInfo(name))
             val count = numbers[index].toInt()
             kiosk.orderMenu(menu, count)
-            outputView.orderMenu(name,count)
+            outputView.orderMenu(name, count)
         }
     }
 
