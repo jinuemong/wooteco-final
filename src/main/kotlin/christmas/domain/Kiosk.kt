@@ -3,6 +3,7 @@ package christmas.domain
 import christmas.domain.model.Menu
 
 class Kiosk {
+
     private val menus: MutableMap<Menu, Int> = mutableMapOf()
 
     fun orderMenu(menu: Menu) {
@@ -19,5 +20,9 @@ class Kiosk {
         return menus[menu]?.let {
             return it * menu.getMenuPrice()
         } ?: 0
+    }
+
+    fun checkOrderCount(): Int{
+        return menus.values.sum()
     }
 }
