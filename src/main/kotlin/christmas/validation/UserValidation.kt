@@ -12,10 +12,12 @@ class UserValidation {
         require(checkIsNumber(userInput) && checkIsDate(userInput.toInt()))
     }
 
-    fun checkMenus(userInput: String){
+    fun checkMenus(userInput: String): Map<String,Int>{
         require(userInput.isNotEmpty())
 
         var menuCount = 0
+        val menus : MutableMap<String,Int> = mutableMapOf()
+
         userInput.split(Form.ORDER_SEPARATOR).forEach { pairMenu ->
 
             require(checkPair(pairMenu))
@@ -26,7 +28,10 @@ class UserValidation {
 
             menuCount+= num.toInt()
             require(checkMenuRange(menuCount))
+
+            menus[menu] = num.toInt()
         }
+        return menus
     }
 
     private fun checkIsNumber(userInput: String): Boolean {
