@@ -5,9 +5,15 @@ import christmas.view.InputView
 import christmas.view.OutputView
 
 fun main() {
-    val eventController = EventController(
-        inputView = InputView(),
-        outputView = OutputView()
-    )
-    eventController.userFlow()
+
+    try {
+        val eventController = EventController(
+            inputView = InputView(),
+            outputView = OutputView()
+        )
+        eventController.userFlow()
+
+    } catch (e: IllegalArgumentException) {
+        println(e.message)
+    }
 }
