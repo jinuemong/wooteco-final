@@ -14,9 +14,6 @@ object Rule {
 
     const val MIN_GIVEAWAY_PRICE = 120_000
 
-    const val CURRENT_GIVEAWAY = "샴페인"
-    const val CURRENT_GIVEAWAY_COUNT = 1
-
     const val MIN_STAR_BADGE_PRICE = 5_000
     const val MIN_TREE_BADGE_PRICE = 10_000
     const val MIN_SANTA_BADGE_PRICE = 20_000
