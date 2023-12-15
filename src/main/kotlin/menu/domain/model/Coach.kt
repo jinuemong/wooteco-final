@@ -1,7 +1,8 @@
 package menu.domain.model
 
 class Coach(
-    private val forbiddenFood: Set<String>,
+    private val name: String,
+    private val forbiddenFood: Set<String> = mutableSetOf(),
     private val menus: MutableList<String> = mutableListOf()
 ) {
 
