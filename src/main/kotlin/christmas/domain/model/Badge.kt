@@ -11,7 +11,7 @@ enum class Badge(
     SANTA("산타"),
     NONE("없음");
 
-    private fun getBadgeName() = badgeName
+    fun getBadgeName() = badgeName
 
     companion object {
 

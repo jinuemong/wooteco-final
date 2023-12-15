@@ -1,5 +1,7 @@
 package christmas.domain.model
 
+import christmas.utils.Form
+
 enum class BenefitInfo(
     private val message: String
 ) {
@@ -9,6 +11,6 @@ enum class BenefitInfo(
     SPECIAL_DISCOUNT("특별 할인: -"),
     GIVEAWAY_EVENT("증정 이벤트: -");
 
-    fun benefitMessaging(price: Int): String = this.message + price
+    fun benefitMessaging(): String = this.message
 
 }
