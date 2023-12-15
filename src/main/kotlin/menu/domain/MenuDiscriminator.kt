@@ -1,4 +1,18 @@
 package menu.domain
 
-class MenuDiscriminator {
+import menu.domain.model.Category
+import menu.domain.utils.Rule
+
+class MenuDiscriminator(
+    private val weekCategory: MutableMap<Category, Int> = mutableMapOf()
+) {
+
+    fun checkCategory(category: Category): Boolean {
+        return (weekCategory[category] ?: 0) < Rule.MAX_WEEKEND_CATEGORY
+    }
+
+    fun addCategory(category: Category) {
+        weekCategory[category] = (weekCategory[category] ?: 0) + 1
+    }
+
 }
