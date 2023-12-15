@@ -5,7 +5,6 @@ import christmas.domain.model.BenefitInfo
 import christmas.domain.model.MenuInfo
 import christmas.utils.Form
 import christmas.utils.Message
-import christmas.utils.Rule
 import java.text.DecimalFormat
 
 class OutputView {
@@ -19,7 +18,7 @@ class OutputView {
         println()
     }
 
-    fun orderMenu(name: String, count : Int) {
+    fun orderMenu(name: String, count: Int) {
         println("$name ${count}${Form.UNIT_MENU}")
     }
 
@@ -69,11 +68,9 @@ class OutputView {
         println(badge.getBadgeName())
     }
 
-
     private fun makePriceForm(price: Int): String {
         return if (price > 999) DecimalFormat(Form.RETURN_FORMAT).format(price) + Form.UNIT_PRICE
         else price.toString()
     }
-
 
 }

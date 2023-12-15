@@ -31,4 +31,5 @@ class EventCalendar {
         private const val SECOND_WEEKEND = 2
         private const val WEEKEND_CYCLE = 7
     }
+
 }

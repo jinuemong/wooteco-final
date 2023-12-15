@@ -7,8 +7,7 @@ class Kiosk(
     private val menus: MutableMap<Menu, Int> = mutableMapOf()
 ) {
 
-
-    fun orderMenu(menu: Menu,count : Int) {
+    fun orderMenu(menu: Menu, count: Int) {
         menus[menu] = (menus[menu] ?: 0) + count
     }
 
