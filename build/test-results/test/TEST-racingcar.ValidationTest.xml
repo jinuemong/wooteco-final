@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="racingcar.ValidationTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-12-15T09:38:17" hostname="gimjin-uui-MacBookPro.local" time="0.002">
+  <properties/>
+  <testcase name="자동차 이름 예외 테스트(숫자로만 이루어진 단어 포함)()" classname="racingcar.ValidationTest" time="0.0"/>
+  <testcase name="레이싱 넘버 정확성 테스트()" classname="racingcar.ValidationTest" time="0.001"/>
+  <testcase name="자동차 이름 정확성 테스트()" classname="racingcar.ValidationTest" time="0.0"/>
+  <testcase name="레이싱 넘버 예외 테스트(숫자가 아닌 경우) ()" classname="racingcar.ValidationTest" time="0.0"/>
+  <testcase name="자동차 이름 예외 테스트(5글자를 넘는 단어 포함 )()" classname="racingcar.ValidationTest" time="0.0"/>
+  <testcase name="레이싱 넘버 예외 테스트(0인 경우) ()" classname="racingcar.ValidationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

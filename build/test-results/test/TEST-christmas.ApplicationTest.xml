@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="christmas.ApplicationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-15T07:25:30" hostname="gimjin-uui-MacBookPro.local" time="0.069">
+<testsuite name="christmas.ApplicationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-12-15T09:38:17" hostname="gimjin-uui-MacBookPro.local" time="0.026">
   <properties/>
-  <testcase name="혜택 내역 없음 출력()" classname="christmas.ApplicationTest" time="0.061"/>
+  <testcase name="혜택 내역 없음 출력()" classname="christmas.ApplicationTest" time="0.019"/>
   <testcase name="주문 예외 테스트()" classname="christmas.ApplicationTest" time="0.002"/>
-  <testcase name="날짜 예외 테스트()" classname="christmas.ApplicationTest" time="0.002"/>
+  <testcase name="날짜 예외 테스트()" classname="christmas.ApplicationTest" time="0.001"/>
   <testcase name="모든 타이틀 출력()" classname="christmas.ApplicationTest" time="0.003"/>
   <system-out><![CDATA[안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.
 12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)
