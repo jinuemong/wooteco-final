@@ -22,9 +22,9 @@ class OutputView {
         println(Message.MSG_START_CATEGORY+categoryMessage+Message.UNIT_END)
     }
 
-    fun outputCoachMenu(menus: List<String>){
+    fun outputCoachMenu(name: String,menus: List<String>){
         val menuMessage = menus.joinToString(Message.SEPARATOR)
-        println(Message.MSG_START_COACH+menuMessage+Message.UNIT_END)
+        println(Message.MSG_START_COACH.format(name)+menuMessage+Message.UNIT_END)
     }
 
     fun outputEnd(){

@@ -67,21 +67,26 @@ class MenuController(
     private fun menuSelect() {
         val menuCategory = categoryVerifier.getCategory()
         coaches.forEach { coach ->
-            while (!coach.checkIsEnoughMenuCount()) {
-                menuCategory.forEach { category ->
+            menuCategory.forEach { category ->
+                while (true) {
                     val newMenu = menuSelector.selectCategoryMenu(category)
-                    if (!coach.checkIsPrevFeed(newMenu) && !coach.checkIsForbiddenFood(newMenu))
+                    if (!coach.checkIsPrevFeed(newMenu) && !coach.checkIsForbiddenFood(newMenu)) {
                         coach.saveMenu(newMenu)
+                        break
+                    }
                 }
             }
         }
     }
 
-    private fun result(){
+    private fun result() {
         outputView.outputResult()
         outputView.outputCategory(categoryVerifier.getCategory())
         coaches.forEach { coach ->
-            outputView.outputCoachMenu(coach.getCoachMenu())
+            outputView.outputCoachMenu(
+                coach.getCoachName(),
+                coach.getCoachMenu()
+            )
         }
         outputView.outputEnd()
     }
