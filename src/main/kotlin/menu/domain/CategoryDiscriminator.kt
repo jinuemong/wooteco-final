@@ -3,7 +3,7 @@ package menu.domain
 import menu.domain.model.Category
 import menu.domain.utils.Rule
 
-class MenuDiscriminator(
+class CategoryDiscriminator(
     private val weekCategory: MutableMap<Category, Int> = mutableMapOf()
 ) {
 
