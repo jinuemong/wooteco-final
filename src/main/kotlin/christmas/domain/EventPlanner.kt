@@ -30,16 +30,20 @@ class EventPlanner(
             eventBenefit[BenefitInfo.SPECIAL_DISCOUNT] = Rule.STAR_DISCOUNT
     }
 
-    fun computeTotalPrice() {
+    fun computeGiveaway() {
         if (kiosk.getTotalOrderPrice() >= Rule.MIN_GIVEAWAY_PRICE)
             eventBenefit[BenefitInfo.GIVEAWAY_EVENT] = MenuInfo.getCurrentGiveawayPrice()
+    }
+
+    fun computeDiscountPrice(): Int {
+        return kiosk.getTotalOrderPrice() - computeTotalBenefit()
     }
 
     fun computeGiveBadge(): Badge {
         return Badge.getPriceBadge(computeTotalBenefit())
     }
 
-    private fun computeTotalBenefit(): Int {
+    fun computeTotalBenefit(): Int {
         return eventBenefit.values.sum()
     }
 
