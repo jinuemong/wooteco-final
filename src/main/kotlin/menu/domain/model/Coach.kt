@@ -30,4 +30,6 @@ class Coach(
     }
 
     fun getCoachName(): String = name
+
+    fun getCoachMenu(): List<String> = this.menus
 }

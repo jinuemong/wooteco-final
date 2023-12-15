@@ -15,8 +15,18 @@ class CategoryDiscriminator(
         weekCategory[category] = (weekCategory[category] ?: 0) + 1
     }
 
-    fun checkIsEnoughCategoryCount(): Boolean{
+    fun checkIsEnoughCategoryCount(): Boolean {
         return weekCategory.size == Rule.MAX_MENU_NUM
+    }
+
+    fun getCategory(): List<Category> {
+        val currentCategory: MutableList<Category> = mutableListOf()
+        weekCategory.map { (category, count) ->
+            repeat(count) {
+                currentCategory.add(category)
+            }
+        }
+        return currentCategory
     }
 
 }

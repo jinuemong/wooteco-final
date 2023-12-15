@@ -35,6 +35,7 @@ enum class Category(
     );
 
     fun getMenus() = this.menus
+    fun getName() = this.categoryName
 
     companion object {
 

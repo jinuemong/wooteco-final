@@ -8,9 +8,11 @@ class OutputView {
 
     fun outputStart(){
         println(Message.START)
+        println()
     }
 
     fun outputResult(){
+        println()
         println(Message.RESULT)
         println(Message.MSG_START_DAY+MenuDay.getMenuDayMessage()+Message.UNIT_END)
     }
@@ -26,6 +28,7 @@ class OutputView {
     }
 
     fun outputEnd(){
+        println()
         println(Message.END_RESULT)
     }
 

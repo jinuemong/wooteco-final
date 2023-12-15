@@ -21,6 +21,7 @@ class MenuController(
         saveForbiddenFood()
         categorySelect()
         menuSelect()
+        result()
     }
 
     private fun makeCoach() {
@@ -55,12 +56,34 @@ class MenuController(
         }
     }
 
-    private fun categorySelect(){
-
+    private fun categorySelect() {
+        while (!categoryVerifier.checkIsEnoughCategoryCount()) {
+            val newCategory = menuSelector.selectCategory()
+            if (categoryVerifier.checkCategory(newCategory))
+                categoryVerifier.addCategory(newCategory)
+        }
     }
 
-    private fun menuSelect(){
+    private fun menuSelect() {
+        val menuCategory = categoryVerifier.getCategory()
+        coaches.forEach { coach ->
+            while (!coach.checkIsEnoughMenuCount()) {
+                menuCategory.forEach { category ->
+                    val newMenu = menuSelector.selectCategoryMenu(category)
+                    if (!coach.checkIsPrevFeed(newMenu) && !coach.checkIsForbiddenFood(newMenu))
+                        coach.saveMenu(newMenu)
+                }
+            }
+        }
+    }
 
+    private fun result(){
+        outputView.outputResult()
+        outputView.outputCategory(categoryVerifier.getCategory())
+        coaches.forEach { coach ->
+            outputView.outputCoachMenu(coach.getCoachMenu())
+        }
+        outputView.outputEnd()
     }
 
 

@@ -12,6 +12,7 @@ class InputView {
     }
 
     fun requireCoachForbiddenMenu(name: String): List<String> {
+        println()
         println(Message.INPUT_FORBIDDEN_FOOD.format(name))
         return Console.readLine().split(Rule.SPLIT_SEPARATOR)
     }
