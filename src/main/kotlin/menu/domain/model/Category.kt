@@ -1,5 +1,7 @@
 package menu.domain.model
 
+import menu.domain.utils.Error
+
 enum class Category(
     private val menuName: String,
     private val menuNumber: Int,
@@ -38,12 +40,12 @@ enum class Category(
 
         fun getCategoryFromNumber(number: Int): Category {
             return entries.find { it.menuNumber == number }
-                ?: throw IllegalArgumentException()
+                ?: throw IllegalArgumentException(Error.INVALID_CATEGORY)
         }
 
         fun getCategoryFromName(name: String): Category {
             return entries.find { it.menuName == name }
-                ?: throw IllegalArgumentException()
+                ?: throw IllegalArgumentException(Error.INVALID_CATEGORY)
         }
     }
 
