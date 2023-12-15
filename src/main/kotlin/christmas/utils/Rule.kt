@@ -22,6 +22,6 @@ object Rule {
     const val MIN_SANTA_BADGE_PRICE = 20_000
 
     const val START_DATE = 1
-    const val EDT_DATE = 31
+    const val END_DATE = 31
 
 }
