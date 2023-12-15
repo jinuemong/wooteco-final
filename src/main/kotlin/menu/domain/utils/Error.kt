@@ -13,4 +13,5 @@ object Error {
     const val LARGE_COACH_NAME ="$ERR_MSG 코치 이름은 최대 4글자 이하 입력해야 합니다."
     const val INACCURATE_COACH_NAME = "$ERR_MSG 부적절한 코치 이름입니다."
 
+    const val ERR_SELECT_MENU = "$ERR_MSG 메뉴 선정에 실패 했습니다."
 }
