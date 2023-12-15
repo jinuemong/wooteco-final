@@ -3,9 +3,9 @@ package christmas.domain
 import christmas.domain.model.Menu
 import christmas.domain.model.MenuType
 
-class Kiosk {
-
+class Kiosk(
     private val menus: MutableMap<Menu, Int> = mutableMapOf()
+) {
 
     fun orderMenu(menu: Menu) {
         menus[menu] = (menus[menu] ?: 0) + 1
