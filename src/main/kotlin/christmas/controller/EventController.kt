@@ -5,6 +5,7 @@ import christmas.domain.EventPlanner
 import christmas.domain.Kiosk
 import christmas.domain.model.MenuInfo
 import christmas.utils.Form
+import christmas.utils.Rule
 import christmas.view.InputView
 import christmas.view.OutputView
 import christmas.validation.UserValidation
@@ -46,9 +47,15 @@ class EventController(
         val menus: MutableMap<String, Int> = mutableMapOf()
 
         while (!::kiosk.isInitialized) {
-            val userInput = inputView.requireMenu()
-            userValidation.checkMenus(userInput)
-            initKiosk()
+            try {
+                val userInput = inputView.requireMenu()
+                val names = getNames(userInput)
+                val numbers = getNumbers(userInput)
+                userValidation.checkMenus(names,numbers)
+                initKiosk()
+            } catch (e: IllegalArgumentException) {
+                println(e.message)
+            }
         }
 
         menuOrder(menus)
@@ -56,14 +63,16 @@ class EventController(
         outputView.orderMenu(menus.keys.toList())
     }
 
-    private fun compute(){
-        eventPlanner.computeDDay()
-        eventPlanner.computeBasicDay(kiosk)
-        eventPlanner.computeStarDay()
-        eventPlanner.computeGiveaway(kiosk.getTotalOrderPrice())
+    private fun compute() {
+        if (kiosk.getTotalOrderPrice() > Rule.MIN_ORDER_PRICE) {
+            eventPlanner.computeDDay()
+            eventPlanner.computeBasicDay(kiosk)
+            eventPlanner.computeStarDay()
+            eventPlanner.computeGiveaway(kiosk.getTotalOrderPrice())
+        }
     }
 
-    private fun result(){
+    private fun result() {
         outputView.orderPrice(kiosk.getTotalOrderPrice())
         outputView.giveawayMenu(eventPlanner.checkGiveaway())
         outputView.totalBenefit(eventPlanner.benefits())
@@ -90,5 +99,13 @@ class EventController(
             kiosk.orderMenu(menu, count)
         }
     }
+
+    private fun getNames(pieces: List<String>): List<String> =
+        pieces.filterIndexed { index, _ -> checkIndexIsEven(index) }
+
+    private fun getNumbers(pieces: List<String>): List<String> =
+        pieces.filterIndexed { index, _ -> !checkIndexIsEven(index) }
+
+    private fun checkIndexIsEven(index: Int): Boolean = index % 2 == 0
 
 }

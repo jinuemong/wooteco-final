@@ -3,6 +3,7 @@ package christmas.utils
 object Rule {
 
     const val MAX_ORDER_COUNT = 20
+    const val MIN_ORDER_PRICE = 10_000
 
     const val CHRISTMAS_START_DISCOUNT = 1_000
     const val CHRISTMAS_DAY_DISCOUNT = 100
