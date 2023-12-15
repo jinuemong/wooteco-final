@@ -16,4 +16,5 @@ object Message {
     const val DISCOUNTED_PRICE = "<할인 후 예상 결제 금액>"
     const val EVENT_BADGE ="<12월 이벤트 배지>"
 
+    const val NO_BENEFIT = "없음"
 }

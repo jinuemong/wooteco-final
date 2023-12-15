@@ -23,6 +23,7 @@ class EventController(
         userDate()
         order()
         compute()
+        result()
     }
 
     private fun userDate() {
@@ -51,10 +52,20 @@ class EventController(
         }
 
         menuOrder(menus)
+        outputView.computeStart()
+        outputView.orderMenu(menus.keys.toList())
     }
 
     private fun compute(){
-        outputView.computeStart()
+        eventPlanner.computeDDay()
+        eventPlanner.computeBasicDay(kiosk)
+        eventPlanner.computeStarDay()
+        eventPlanner.computeGiveaway(kiosk.getTotalOrderPrice())
+    }
+
+    private fun result(){
+        outputView.orderPrice(kiosk.getTotalOrderPrice())
+        outputView.giveawayMenu(eventPlanner.checkGiveaway())
     }
 
 

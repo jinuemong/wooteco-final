@@ -32,17 +32,25 @@ class OutputView {
         println(makePriceForm(price))
     }
 
-    fun giveawayMenu(){
+    fun giveawayMenu(isReceive: Boolean){
         println()
         println(Message.GIVEAWAY_MENU)
-        println(MenuInfo.getCurrentGiveawayInfo())
+        if (isReceive) {
+            println(MenuInfo.getCurrentGiveawayInfo())
+        }else{
+            println(Message.NO_BENEFIT)
+        }
     }
 
     fun totalBenefit(benefits: Map<BenefitInfo,Int>){
         println()
         println(Message.BENEFIT)
-        benefits.forEach { (benefit,price) ->
-            println(benefit.benefitMessaging()+makePriceForm(price))
+        if (benefits.isNotEmpty()){
+            benefits.forEach { (benefit,price) ->
+                println(benefit.benefitMessaging()+makePriceForm(price))
+            }
+        } else {
+            println(Message.NO_BENEFIT)
         }
     }
 

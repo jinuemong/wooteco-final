@@ -16,14 +16,18 @@ class EventPlanner(
     }
 
     fun computeBasicDay(kiosk: Kiosk) {
-        return when (eventCalendar.checkDayOfWeek(date)) {
-            EventDayOfWeek.WEEKEND ->
-                eventBenefit[BenefitInfo.WEEKEND_DISCOUNT] =
-                    kiosk.getOrderMenuTypeCount(CURRENT_WEEKEND_MENU) * Rule.WEEKEND_DISCOUNT
+        when (eventCalendar.checkDayOfWeek(date)) {
+            EventDayOfWeek.WEEKEND -> {
+                val menuCount = kiosk.getOrderMenuTypeCount(CURRENT_WEEKEND_MENU)
+                if (menuCount > 0)
+                    eventBenefit[BenefitInfo.WEEKEND_DISCOUNT] = menuCount * Rule.WEEKEND_DISCOUNT
+            }
 
-            EventDayOfWeek.WEEKDAY ->
-                eventBenefit[BenefitInfo.WEEKDAY_DISCOUNT] =
-                    kiosk.getOrderMenuTypeCount(CURRENT_WEEKDAY_MENU) * Rule.WEEKDAY_DISCOUNT
+            EventDayOfWeek.WEEKDAY -> {
+                val menuCount = kiosk.getOrderMenuTypeCount(CURRENT_WEEKDAY_MENU)
+                if (menuCount > 0)
+                    eventBenefit[BenefitInfo.WEEKDAY_DISCOUNT] = menuCount * Rule.WEEKDAY_DISCOUNT
+            }
         }
     }
 
@@ -33,7 +37,7 @@ class EventPlanner(
     }
 
     fun computeGiveaway(totalPrice: Int) { //kiosk.getTotalOrderPrice()
-        if ( totalPrice >= Rule.MIN_GIVEAWAY_PRICE)
+        if (totalPrice >= Rule.MIN_GIVEAWAY_PRICE)
             eventBenefit[BenefitInfo.GIVEAWAY_EVENT] = MenuInfo.getCurrentGiveawayPrice()
     }
 
@@ -43,6 +47,10 @@ class EventPlanner(
 
     fun computeGiveBadge(): Badge {
         return Badge.getPriceBadge(computeTotalBenefit())
+    }
+
+    fun checkGiveaway(): Boolean {
+        return eventBenefit.contains(BenefitInfo.GIVEAWAY_EVENT)
     }
 
     fun computeTotalBenefit(): Int {
