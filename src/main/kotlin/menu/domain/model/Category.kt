@@ -45,7 +45,7 @@ enum class Category(
 
         fun getCategoryFromName(name: String): Category {
             return entries.find { it.categoryName == name }
-                ?: throw IllegalArgumentException(Error.INVALID_CATEGORY)
+                ?: throw IllegalArgumentException(Error.ERR_MENU)
         }
 
     }

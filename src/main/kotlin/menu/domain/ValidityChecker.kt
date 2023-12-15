@@ -1,16 +1,44 @@
 package menu.domain
 
+import menu.domain.model.Category
+import menu.domain.utils.Error
 import menu.domain.utils.Rule
-import java.lang.NumberFormatException
 
 class ValidityChecker {
 
-    private fun checkIsNumber(userInput: String): Boolean {
-        return try {
-            userInput.toInt()
-            true
-        } catch (e: NumberFormatException) {
-            false
+    fun checkInputCoachNumber(userInput: List<String>){
+        require(checkMinCoachNum(userInput.size)){
+            Error.FEWER_COACHES
+        }
+
+        require(checkMaxCoachNum(userInput.size)){
+            Error.LARGE_COACHES
+        }
+    }
+
+    fun checkInputCoachName(userInput: List<String>){
+        userInput.forEach { name ->
+            require(checkMinName(name)){
+                Error.FEWER_COACH_NAME
+            }
+
+            require(checkMaxName(name)){
+                Error.LARGE_COACH_NAME
+            }
+
+            require(checkNameValid(name)){
+                Error.INACCURATE_COACH_NAME
+            }
+        }
+    }
+
+    fun checkInputMenu(userInput: List<String>){
+        userInput.forEach {menu ->
+            try {
+                Category.getCategoryFromName(menu)
+            } catch (e: IllegalArgumentException){
+                println(e.message)
+            }
         }
     }
 
@@ -26,5 +54,12 @@ class ValidityChecker {
         return name.matches(Regex(Rule.NAME_RULE))
     }
 
-    private
+    private fun checkMinCoachNum(count: Int): Boolean{
+        return count >= Rule.MIN_COACH_NUM
+    }
+
+    private fun checkMaxCoachNum(count: Int): Boolean{
+        return count <= Rule.MAX_COACH_NUM
+    }
+
 }

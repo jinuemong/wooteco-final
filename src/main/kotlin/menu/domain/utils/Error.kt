@@ -14,4 +14,6 @@ object Error {
     const val INACCURATE_COACH_NAME = "$ERR_MSG 부적절한 코치 이름입니다."
 
     const val ERR_SELECT_MENU = "$ERR_MSG 메뉴 선정에 실패 했습니다."
+    const val ERR_MENU ="$ERR_MSG 없는 메뉴가 있습니다."
+
 }
