@@ -27,7 +27,7 @@ enum class MenuInfo(
     RED_WINE("레드와인", 60_000),
     CHAMPAGNE("샴페인", 25_000);
 
-    fun getOrderPrice(count: Int): Int = price * count
+    fun getOrderPrice(): Int = this.price
 
     companion object {
 

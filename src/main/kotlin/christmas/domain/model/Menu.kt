@@ -7,5 +7,6 @@ open class Menu(
     private val menuInfo: MenuInfo
 ) {
 
+    fun getMenuPrice(): Int = menuInfo.getOrderPrice()
 
 }
