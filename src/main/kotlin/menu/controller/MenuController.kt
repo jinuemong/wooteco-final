@@ -12,13 +12,15 @@ class MenuController(
     private val outputView: OutputView,
     private val inputVerifier: ValidityChecker,
     private val categoryVerifier: CategoryDiscriminator,
+    private val menuSelector: MenuSelector,
     private var coaches: MutableList<Coach> = mutableListOf()
 ) {
-    private lateinit var menuSelector: MenuSelector
 
     fun userFlow() {
         makeCoach()
         saveForbiddenFood()
+        categorySelect()
+        menuSelect()
     }
 
     private fun makeCoach() {
@@ -37,13 +39,33 @@ class MenuController(
         }
     }
 
-    private fun saveForbiddenFood(){
+    private fun saveForbiddenFood() {
+        coaches.forEach { coach ->
+            while (true) {
+                try {
+                    val userInput = inputView.requireCoachForbiddenMenu(coach.getCoachName())
+                    inputVerifier.checkInputMenu(userInput)
+
+                    coach.saveForbiddenFood(userInput)
+                    break
+                } catch (e: IllegalArgumentException) {
+                    println(e.message)
+                }
+            }
+        }
+    }
+
+    private fun categorySelect(){
+
+    }
+
+    private fun menuSelect(){
 
     }
 
 
-    private fun initCoach(userInput: List<String>){
-        userInput.forEach {name ->
+    private fun initCoach(userInput: List<String>) {
+        userInput.forEach { name ->
             coaches.add(Coach(name))
         }
     }

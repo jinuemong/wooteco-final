@@ -15,4 +15,8 @@ class CategoryDiscriminator(
         weekCategory[category] = (weekCategory[category] ?: 0) + 1
     }
 
+    fun checkIsEnoughCategoryCount(): Boolean{
+        return weekCategory.size == Rule.MAX_MENU_NUM
+    }
+
 }
