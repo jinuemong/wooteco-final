@@ -43,16 +43,16 @@ enum class MenuInfo(
                 CAESAR_SALAD -> Appetizer.CaesarSalad(MenuType.APPETIZER, menuInfo)
                 // MAIN
                 T_BONE_STEAK -> MainMenu.TBoneSteak(MenuType.MAIN, menuInfo)
-                BARBECUE_RIB -> MainMenu.TBoneSteak(MenuType.MAIN, menuInfo)
-                SEAFOOD_PASTA -> MainMenu.TBoneSteak(MenuType.MAIN, menuInfo)
-                CHRISTMAS_PASTA -> MainMenu.TBoneSteak(MenuType.MAIN, menuInfo)
+                BARBECUE_RIB -> MainMenu.BarbecueRib(MenuType.MAIN, menuInfo)
+                SEAFOOD_PASTA -> MainMenu.SeafoodPasta(MenuType.MAIN, menuInfo)
+                CHRISTMAS_PASTA -> MainMenu.ChristmasPasta(MenuType.MAIN, menuInfo)
                 // DESSERT
                 CHOCOLATE_CAKE -> Dessert.ChocolateCake(MenuType.DESSERT, menuInfo)
-                ICE_CREAM -> Dessert.ChocolateCake(MenuType.DESSERT, menuInfo)
+                ICE_CREAM -> Dessert.IceCream(MenuType.DESSERT, menuInfo)
                 // BEVERAGE
                 ZERO_COLA -> Beverage.ZeroCola(MenuType.BEVERAGE, menuInfo)
-                RED_WINE -> Beverage.ZeroCola(MenuType.BEVERAGE, menuInfo)
-                CHAMPAGNE -> Beverage.ZeroCola(MenuType.BEVERAGE, menuInfo)
+                RED_WINE -> Beverage.RedWine(MenuType.BEVERAGE, menuInfo)
+                CHAMPAGNE -> Beverage.Champagne(MenuType.BEVERAGE, menuInfo)
             }
         }
 
