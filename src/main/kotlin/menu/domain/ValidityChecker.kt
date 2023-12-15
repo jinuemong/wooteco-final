@@ -33,12 +33,8 @@ class ValidityChecker {
     }
 
     fun checkInputMenu(userInput: List<String>){
-        userInput.forEach {menu ->
-            try {
-                Category.getCategoryFromName(menu)
-            } catch (e: IllegalArgumentException){
-                println(e.message)
-            }
+        userInput.forEach { menu ->
+            Category.getCategoryFromName(menu)
         }
     }
 

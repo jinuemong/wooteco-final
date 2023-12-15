@@ -57,7 +57,7 @@ class MenuController(
     }
 
     private fun categorySelect() {
-        while (!categoryVerifier.checkIsEnoughCategoryCount()) {
+        while (categoryVerifier.checkIsEnoughCategoryCount()) {
             val newCategory = menuSelector.selectCategory()
             if (categoryVerifier.checkCategory(newCategory))
                 categoryVerifier.addCategory(newCategory)

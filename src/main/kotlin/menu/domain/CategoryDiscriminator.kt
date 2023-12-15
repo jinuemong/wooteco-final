@@ -4,7 +4,8 @@ import menu.domain.model.Category
 import menu.domain.utils.Rule
 
 class CategoryDiscriminator(
-    private val weekCategory: MutableMap<Category, Int> = mutableMapOf()
+    private val weekCategory: MutableMap<Category, Int> = mutableMapOf(),
+    private var orderCategoryCount: Int = 0
 ) {
 
     fun checkCategory(category: Category): Boolean {
@@ -13,10 +14,11 @@ class CategoryDiscriminator(
 
     fun addCategory(category: Category) {
         weekCategory[category] = (weekCategory[category] ?: 0) + 1
+        orderCategoryCount+=1
     }
 
     fun checkIsEnoughCategoryCount(): Boolean {
-        return weekCategory.size == Rule.MAX_MENU_NUM
+        return orderCategoryCount < Rule.MAX_MENU_NUM
     }
 
     fun getCategory(): List<Category> {

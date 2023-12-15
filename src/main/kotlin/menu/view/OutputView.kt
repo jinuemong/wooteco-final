@@ -6,28 +6,28 @@ import menu.domain.utils.Message
 
 class OutputView {
 
-    fun outputStart(){
+    fun outputStart() {
         println(Message.START)
         println()
     }
 
-    fun outputResult(){
+    fun outputResult() {
         println()
         println(Message.RESULT)
-        println(Message.MSG_START_DAY+MenuDay.getMenuDayMessage()+Message.UNIT_END)
+        println(Message.MSG_START_DAY + MenuDay.getMenuDayMessage() + Message.UNIT_END)
     }
 
-    fun outputCategory(category: List<Category>){
-        val categoryMessage = category.joinToString(Message.SEPARATOR)
-        println(Message.MSG_START_CATEGORY+categoryMessage+Message.UNIT_END)
+    fun outputCategory(category: List<Category>) {
+        val categoryMessage = category.joinToString(Message.SEPARATOR) { it.getName() }
+        println(Message.MSG_START_CATEGORY + categoryMessage + Message.UNIT_END)
     }
 
-    fun outputCoachMenu(name: String,menus: List<String>){
+    fun outputCoachMenu(name: String, menus: List<String>) {
         val menuMessage = menus.joinToString(Message.SEPARATOR)
-        println(Message.MSG_START_COACH.format(name)+menuMessage+Message.UNIT_END)
+        println(Message.MSG_START_COACH.format(name) + menuMessage + Message.UNIT_END)
     }
 
-    fun outputEnd(){
+    fun outputEnd() {
         println()
         println(Message.END_RESULT)
     }
