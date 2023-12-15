@@ -20,8 +20,6 @@ class EventCalendar {
         return date % STAR_CYCLE == START_STAR_DAY || date == D_DAY
     }
 
-
-
     companion object {
 
         private const val D_DAY = 25
