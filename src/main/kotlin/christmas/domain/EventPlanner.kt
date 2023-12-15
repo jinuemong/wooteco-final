@@ -1,5 +1,6 @@
 package christmas.domain
 
+import christmas.domain.model.BenefitInfo
 import christmas.domain.model.EventDayOfWeek
 import christmas.domain.model.MenuInfo
 import christmas.domain.model.MenuType
@@ -7,32 +8,34 @@ import christmas.utils.Rule
 
 class EventPlanner(
     private val eventCalendar: EventCalendar,
-    private val kiosk: Kiosk
+    private val kiosk: Kiosk,
+    private val eventBenefit: MutableMap<BenefitInfo, Int> = mutableMapOf()
 ) {
 
-    fun computeDDay(date: Int): Int {
-        return if (eventCalendar.checkDDay(date))
-            Rule.CHRISTMAS_START_DISCOUNT + (date - 1) * Rule.CHRISTMAS_DAY_DISCOUNT
-        else 0
+    fun computeDDay(date: Int) {
+        if (eventCalendar.checkDDay(date))
+            eventBenefit[BenefitInfo.D_DAY_DISCOUNT] =
+                Rule.CHRISTMAS_START_DISCOUNT + (date - 1) * Rule.CHRISTMAS_DAY_DISCOUNT
     }
 
-    fun computeBasicDay(date: Int): Int {
+    fun computeBasicDay(date: Int) {
         return when (eventCalendar.checkDayOfWeek(date)) {
-            EventDayOfWeek.WEEKEND -> computeWeekend() * Rule.WEEKEND_DISCOUNT
-            EventDayOfWeek.WEEKDAY -> computeWeekDay() * Rule.WEEKDAY_DISCOUNT
+            EventDayOfWeek.WEEKEND ->
+                eventBenefit[BenefitInfo.WEEKEND_DISCOUNT] = computeWeekend() * Rule.WEEKEND_DISCOUNT
+
+            EventDayOfWeek.WEEKDAY ->
+                eventBenefit[BenefitInfo.WEEKDAY_DISCOUNT] = computeWeekDay() * Rule.WEEKDAY_DISCOUNT
         }
     }
 
-    fun computeStarDay(date: Int): Int {
-        return if (eventCalendar.checkStartDay(date)) Rule.STAR_DISCOUNT
-        else 0
+    fun computeStarDay(date: Int){
+        if (eventCalendar.checkStartDay(date))
+            eventBenefit[BenefitInfo.SPECIAL_DISCOUNT] = Rule.STAR_DISCOUNT
     }
 
-    fun computeTotalPrice(): Int {
-        return if (kiosk.getTotalOrderPrice() >= Rule.MIN_GIVEAWAY_PRICE)
-            MenuInfo.getCurrentGiveawayPrice()
-        else
-            0
+    fun computeTotalPrice() {
+        if (kiosk.getTotalOrderPrice() >= Rule.MIN_GIVEAWAY_PRICE)
+            eventBenefit[BenefitInfo.GIVEAWAY_EVENT] = MenuInfo.getCurrentGiveawayPrice()
     }
 
     private fun computeWeekend(): Int {
