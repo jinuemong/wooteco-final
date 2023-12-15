@@ -47,6 +47,7 @@ enum class Category(
             return entries.find { it.categoryName == name }
                 ?: throw IllegalArgumentException(Error.INVALID_CATEGORY)
         }
+
     }
 
 }
