@@ -21,6 +21,12 @@ class UserValidation {
 
     ) {
 
+        menuNumbers.forEach {
+            require(checkIsNumber(it)) {
+                Error.WRONG_MENU_FORM
+            }
+        }
+
         require(checkMatchNameAndNumberCount(menuNames, menuNumbers)) {
             Error.WRONG_MENU_FORM
         }

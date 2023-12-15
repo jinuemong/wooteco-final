@@ -5,6 +5,7 @@ import christmas.domain.EventPlanner
 import christmas.domain.Kiosk
 import christmas.domain.model.MenuInfo
 import christmas.utils.Form
+import christmas.utils.Message
 import christmas.utils.Rule
 import christmas.view.InputView
 import christmas.view.OutputView
@@ -44,7 +45,6 @@ class EventController(
 
     private fun order() {
 
-        val menus: MutableMap<String, Int> = mutableMapOf()
 
         while (!::kiosk.isInitialized) {
             try {
@@ -52,15 +52,12 @@ class EventController(
                 val names = getNames(userInput)
                 val numbers = getNumbers(userInput)
                 userValidation.checkMenus(names,numbers)
-                initKiosk()
+                initKiosk(names,numbers)
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
         }
 
-        menuOrder(menus)
-        outputView.computeStart()
-        outputView.orderMenu(menus.keys.toList())
     }
 
     private fun compute() {
@@ -82,8 +79,17 @@ class EventController(
     }
 
 
-    private fun initKiosk() {
+    private fun initKiosk(names: List<String>, numbers: List<String>) {
+        outputView.computeStart()
+        println(Message.ORDER_MENU)
         kiosk = Kiosk()
+
+        names.forEachIndexed { index, name ->
+            val menu = MenuInfo.getMenu(MenuInfo.getMenuInfo(name))
+            val count = numbers[index].toInt()
+            kiosk.orderMenu(menu, count)
+            outputView.orderMenu(name,count)
+        }
     }
 
     private fun initEventPlanner(date: Int) {
@@ -91,13 +97,6 @@ class EventController(
             date = date,
             eventCalendar = eventCalendar
         )
-    }
-
-    private fun menuOrder(menus: Map<String, Int>) {
-        menus.forEach { (name, count) ->
-            val menu = MenuInfo.getMenu(MenuInfo.getMenuInfo(name))
-            kiosk.orderMenu(menu, count)
-        }
     }
 
     private fun getNames(pieces: List<String>): List<String> =
