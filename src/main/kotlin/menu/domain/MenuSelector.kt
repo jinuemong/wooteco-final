@@ -11,7 +11,7 @@ class MenuSelector {
         return Category.getCategoryFromNumber(makeRandomNum())
     }
 
-    fun selectCategoryMenus(category: Category): String {
+    fun selectCategoryMenu(category: Category): String {
         require(category.getMenus().isNotEmpty()){
             Error.ERR_SELECT_MENU
         }
