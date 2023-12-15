@@ -41,6 +41,8 @@ class EventPlanner(
             eventBenefit[BenefitInfo.GIVEAWAY_EVENT] = MenuInfo.getCurrentGiveawayPrice()
     }
 
+    fun benefits() = eventBenefit
+
     fun computeDiscountPrice(totalPrice: Int): Int { //kiosk.getTotalOrderPrice()
         return totalPrice - computeTotalBenefit()
     }

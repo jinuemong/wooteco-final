@@ -66,6 +66,10 @@ class EventController(
     private fun result(){
         outputView.orderPrice(kiosk.getTotalOrderPrice())
         outputView.giveawayMenu(eventPlanner.checkGiveaway())
+        outputView.totalBenefit(eventPlanner.benefits())
+        outputView.totalBenefitPrice(eventPlanner.computeTotalBenefit())
+        outputView.discountPrice(eventPlanner.computeDiscountPrice(kiosk.getTotalOrderPrice()))
+        outputView.eventBadge(eventPlanner.computeGiveBadge())
     }
 
 

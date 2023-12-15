@@ -24,7 +24,4 @@ class Kiosk(
         }
     }
 
-    fun checkOrderCount(): Int {
-        return menus.values.sum()
-    }
 }
